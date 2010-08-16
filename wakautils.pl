@@ -381,7 +381,7 @@ sub clean_string($;$)
 	$str=~s/,/&#44;/g; # clean up commas for some reason I forgot
 
 	$str=~s/[\x00-\x08\x0b\x0c\x0e-\x1f]//g; # remove control chars
-	$str=~s/[\x{fffe}\x{ffff}]//g; # remove U+FFFF and U+FFFE
+	$str=~s/[\x{fdd0}-\x{fdef}\x{fffe}\x{ffff}\x{1fffe}\x{1ffff}\x{2fffe}\x{2ffff}\x{3fffe}\x{3ffff}\x{4fffe}\x{4ffff}\x{5fffe}\x{5ffff}\x{6fffe}\x{6ffff}\x{7fffe}\x{7ffff}\x{8fffe}\x{8ffff}\x{9fffe}\x{9ffff}\x{afffe}\x{affff}\x{bfffe}\x{bffff}\x{cfffe}\x{cffff}\x{dfffe}\x{dffff}\x{efffe}\x{effff}\x{ffffe}\x{fffff}\x{10fffe}\x{10ffff}]//g; # remove non-characters
 
 	return $str;
 }
