@@ -50,12 +50,13 @@ use constant S_MOREOPTS => "More options...";
 use constant S_FORMATTING => "Formatting:";
 use constant S_SAVE_FORMATTING => "Always use this formatting";
 use constant S_TRIPVARIANT => "Tripcode Variant:";
-use constant S_FORMATS => {none=>"None",waka=>"WakabaMark",html=>"HTML",raw=>"Raw HTML",aa=>"Text Art"};
+use constant S_FORMATS => {none=>"None",waka=>"WakabaMark",html=>"HTML",raw=>"Raw HTML",aa=>"Text Art",bbcode=>"BBCode"};
 use constant S_DESCRIBE_FORMATS => {
 	none=>'Only auto-links URLs and >> references.',
 	waka=>'Simple text formatting. See the description <a href="http://wakaba.c3.cx/docs/docs.html#WakabaMark">here</a>.',
 	html=>'Allowed tags: <em>'.describe_allowed(ALLOWED_HTML).'</em>.',
 	aa=>'Only auto-links URLs and >> references, and sets the font to be suitable for SJIS art.',
+	bbcode=>'Everyone\'s favorite touring complete markup language.'
 };
 
 use constant S_COL_NUM => "Num";

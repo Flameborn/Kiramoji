@@ -549,12 +549,20 @@ sub raw_html_format($$)
 sub bbcode_format($$)
 {
 	my ($text,$thread)=@_;
-	my %bbcode = ('b' => 'b', 'code' => 'code', 'i' => 'i', 'm' => 'tt',
-		'u' => 'u', 's' => 's', 'sub' => 'sub', 'sup' => 'sup' );
-
-	$text=~s/[$_](.*?)[\/$_]/<$bbcode{$_}>$1<\/$bbcode{$_}>/g for
-		keys %bbcode;
-
+	my %bbcode = ('b' => 'font-weight:bold',
+	              'code' => 'font-family:monospace',
+	              'i' => 'font-style:italic',
+	              'm' => 'font-family:monospace',
+	              'o' => 'text-decoration:overline',
+	              'u' => 'text-decoration:underline',
+	              's' => 'text-decoration:line-through',
+	              'sub' => 'vertical-align:sub;font-size:smaller',
+	              'sup' => 'vertical-align:super;font-size:smaller' );
+        for my $tag (keys %bbcode)
+	{
+		1 while
+			 $text=~s/\[$tag\](.*?)\[\/$tag\]/<span style="$bbcode{$tag}">$1<\/span>/g;
+	}
 	return $text;
 }
 

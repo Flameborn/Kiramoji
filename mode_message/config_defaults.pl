@@ -84,7 +84,7 @@ BEGIN {
 	eval "use constant ENABLE_DELETION => 1" unless(defined &ENABLE_DELETION);
 	eval "use constant PAGE_GENERATION => 'single'" unless(defined &PAGE_GENERATION);
 	eval "use constant DELETE_FIRST => 'single'" unless(defined &DELETE_FIRST);
-	eval "use constant MARKUP_FORMATS => ('none','waka','html','aa')" unless(defined &MARKUP_FORMATS);
+	eval "use constant MARKUP_FORMATS => ('none','waka','html','aa','bbcode')" unless(defined &MARKUP_FORMATS);
 	eval "use constant DEFAULT_MARKUP => 'waka'" unless(defined &DEFAULT_MARKUP);
 	eval "use constant FUDGE_BLOCKQUOTES => 0" unless(defined &FUDGE_BLOCKQUOTES);
 	eval "use constant USE_XHTML => 1" unless(defined &USE_XHTML);
