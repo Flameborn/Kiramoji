@@ -1,0 +1,49 @@
+html, body
+{ color: black;
+  background: white; }
+
+a:link, a:visited
+{ color: blue;
+  text-decoration: underline; }
+
+a:hover
+{ color: red;
+  text-decoration: none; }
+
+#navigation, #threads, .thread, .sagethread, #rules, #threadbox, .reply, #titlebox, #createbox, .thread form
+{ background-color: white;
+  color: black;
+  border: 1px solid black;
+  -moz-border-radius: .5em;
+  -webkit-border-radius: .5em;
+  border-radius: .5em;
+  margin: .5em;
+  padding: .5em; }
+
+#navigation, #threads, .thread, #threadbox, #createbox, #titlebox, form
+{ background: #f0f8ff; }
+
+.sagethread
+{ background: #e0b0ff; }
+
+#threadlinks
+{ text-align: right; }
+
+h3, #footer
+{ font-size: x-small; }
+
+h2
+{ font-size: large;
+  font-weight: bold; }
+
+.postername
+{ color: gray; }
+
+.postertrip
+{ color: green; }
+
+.deletedreply
+{ color: gray; }
+
+#footer
+{ text-align: center; }
