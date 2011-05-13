@@ -46,6 +46,9 @@ ol p:last-child, ul p:last-child {
 	border: 1px solid #CC0000;
 	font-size: small;
 	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
 }
 #navigation strong {
 	background: #FFCFC0;
@@ -53,6 +56,9 @@ ol p:last-child, ul p:last-child {
 	font-weight: normal;
 	padding: 3px;
 	-moz-border-radius: 3px 0px 0px 3px;
+	-webkit-border-radius: 3px 0px 0px 3px;
+	-o-border-radius: 3px 0px 0px 3px;
+	border-radius: 3px 0px 0px 3px;
 }
 #navigation a {
 	padding: 3px;
@@ -69,6 +75,9 @@ ol p:last-child, ul p:last-child {
 }
 #titlebox {
 	-moz-border-radius: 6px 6px 0 0;
+	-webkit-border-radius: 6px 6px 0 0;
+	-o-border-radius: 6px 6px 0 0;
+	border-radius: 6px 6px 0 0;
 }
 h1 {
 	color: #005F00;
@@ -96,6 +105,9 @@ h1 {
 	margin: 3px;
 	padding: 6px;
 	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
 }
 #stylebox {
 	padding: 1px 9px;
@@ -104,6 +116,9 @@ h1 {
 #threadbox {
 	margin-bottom: 2em;
 	-moz-border-radius: 0 0 6px 6px;
+	-webkit-border-radius: 0 0 6px 6px;
+	-o-border-radius: 0 0 6px 6px;
+	border-radius: 0 0 6px 6px;
 }
 #threadbox .threadlink {
 	padding-right: 0.5em;
@@ -114,6 +129,9 @@ h1 {
 }
 #createbox {
 	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
 }
 #createbox form {
 	background: #D6F0E0;
@@ -121,6 +139,9 @@ h1 {
 	margin: 3px;
 	padding: 3px;
 	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
 }
 #createbox h2 {
 	font-size: 1.2em;
@@ -135,6 +156,9 @@ h1 {
 }
 #createbox textarea {
 	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
 }
 #createbox input[type=submit], #createbox input[type=button] {
 	background: #C0E0D0;
@@ -154,6 +178,9 @@ h1 {
 	margin-bottom: 2em;
 	clear: both;
 	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	-o-border-radius: 6px;
+	border-radius: 6px;
 }
 #posts .sagethread {
 	background: #D6E0F0;
@@ -161,6 +188,9 @@ h1 {
 	margin-bottom: 2em;
 	clear: both;
 	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	-o-border-radius: 6px;
+	border-radius: 6px;
 }
 #posts h2 {
 	float: left;
@@ -194,6 +224,9 @@ h1 {
 	margin: 3px 3px 6px 3px;
 	padding: 3px;
 	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
 }
 #posts .replytext:after {
 	content: "";
@@ -290,12 +323,18 @@ h1 {
 	margin: 3px;
 	padding: 3px;
 	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
 }
 #posts input, #posts textarea {
 	border: 1px solid #000080;
 }
 #posts textarea {
 	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
 }
 #posts input[type=submit], #posts input[type=button] {
 	background: #C0D0E0;
@@ -332,6 +371,9 @@ h1 {
 	font-family: serif;
 	padding: 6px;
 	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
 	margin: 0 auto;
 }
 

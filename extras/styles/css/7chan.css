@@ -76,6 +76,9 @@ textarea {
 	font-weight: normal;
 	padding: 3px;
 	-moz-border-radius: 3px 0px 0px 3px;
+	-webkit-border-radius: 3px 0px 0px 3px;
+	-o-border-radius: 3px 0px 0px 3px;
+	border-radius: 3px 0px 0px 3px;
 }*/
 #navigation a {
 	padding: 3px;
@@ -178,6 +181,9 @@ h1 {
 	margin: 3px;
 	padding: 3px;
 	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
 }
 #createbox h2 {
 	font-size: 1.2em;
@@ -197,6 +203,9 @@ h1 {
 	padding: 4px;
 	margin-bottom: 2em;
 	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	-o-border-radius: 6px;
+	border-radius: 6px;
 	clear: both;
 	color: black;
 }
@@ -206,6 +215,9 @@ h1 {
 	padding: 4px;
 	margin-bottom: 2em;
 	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	-o-border-radius: 6px;
+	border-radius: 6px;
 	clear: both;
 }
 #posts h2 {
@@ -243,6 +255,9 @@ h1 {
 	height: 4px;
 	margin: -0.3em 1em 0.5em 1em;
 	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
 }
 
 
@@ -338,6 +353,9 @@ h1 {
 	margin: 3px;
 	padding: 3px;
 	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
 	font-weight: bold;
 }
 #posts form a, #posts form small, #posts form label,

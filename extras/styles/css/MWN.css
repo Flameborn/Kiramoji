@@ -49,6 +49,9 @@ input, textarea {
 }*/
 textarea {
 	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
 }
 .aa {
 	font-family: Mona,'MS PGothic' !important; 
@@ -66,6 +69,9 @@ textarea {
 	margin: 0 0 1em 1em;
 	border: 0px;
 	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
 	color: white;
 }
 /*#navigation strong {
@@ -74,6 +80,9 @@ textarea {
 	font-weight: normal;
 	padding: 3px;
 	-moz-border-radius: 3px 0px 0px 3px;
+	-webkit-border-radius: 3px 0px 0px 3px;
+	-o-border-radius: 3px 0px 0px 3px;
+	border-radius: 3px 0px 0px 3px;
 }*/
 #navigation a {
 	padding: 3px;
@@ -120,6 +129,9 @@ body.threadpage #posts .sagethread {
 }
 #titlebox {
 	-moz-border-radius: 6px 6px 0 0;
+	-webkit-border-radius: 6px 6px 0 0;
+	-o-border-radius: 6px 6px 0 0;
+	border-radius: 6px 6px 0 0;
 }
 h1 {
 /*	background: #EEAA88; */
@@ -145,6 +157,9 @@ h1 {
 	margin: 3px;
 	padding: 6px;
 	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
 }
 #stylebox {
 	padding: 1px 9px;
@@ -153,6 +168,9 @@ h1 {
 #threadbox {
 	margin-bottom: 2em;
 	-moz-border-radius: 0 0 6px 6px;
+	-webkit-border-radius: 0 0 6px 6px;
+	-o-border-radius: 0 0 6px 6px;
+	border-radius: 0 0 6px 6px;
 }
 #threadbox .threadlink {
 	padding-right: 0.5em;
@@ -170,6 +188,9 @@ h1 {
 }
 #createbox {
 	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
 }
 #createbox form {
 	background: #63697b;
@@ -177,6 +198,9 @@ h1 {
 	margin: 3px;
 	padding: 3px;
 	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
 }
 #createbox h2 {
 	font-size: 1.2em;
@@ -196,6 +220,9 @@ h1 {
 	padding: 4px;
 	margin-bottom: 2em;
 	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	-o-border-radius: 6px;
+	border-radius: 6px;
 	clear: both;
 	color: white;
 }
@@ -205,6 +232,9 @@ h1 {
 	padding: 4px;
 	margin-bottom: 2em;
 	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	-o-border-radius: 6px;
+	border-radius: 6px;
 	clear: both;
 }
 #posts h2 {
@@ -242,6 +272,9 @@ h1 {
 	height: 4px;
 	margin: -0.3em 1em 0.5em 1em;
 	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
 }
 
 
@@ -336,6 +369,9 @@ h1 {
 	margin: 3px;
 	padding: 3px;
 	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
 	font-weight: bold;
 }
 #posts form a, #posts form small, #posts form label,
@@ -367,6 +403,9 @@ h1 {
 	background: #64697b;
 	padding: 6px;
 	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
 	margin: 0 auto;
 }
 #oldthreadlist th {
