@@ -121,7 +121,7 @@ function set_new_inputs(id)
 	if(!el.field_a.value) el.field_a.value=get_cookie("name");
 	if(!el.field_b.value) el.field_b.value=get_cookie("link");
 	if(!el.password.value) el.password.value=get_password("password");
-	if(el.markup&&!el.comment.value) el.markup.value=get_cookie("markup");
+	if(el.markup&&!el.comment.value&&get_cookie("markup")) el.markup.value=get_cookie("markup");
 	select_markup(el.markup);
 }
 
