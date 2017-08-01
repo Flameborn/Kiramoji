@@ -81,13 +81,13 @@ elsif($task eq "delete")
 {
 	my $password=$query->param("password");
 	my $fileonly=$query->param("fileonly");
-	my @posts=$query->param("delete");
+	my @posts=scalar $query->param("delete");
 
 	delete_stuff($password,$fileonly,@posts);
 }
 elsif($task eq "deletethread")
 {
-	make_error(S_BADDELPASS) unless check_admin_pass($query->param("admin"));
+	make_error(S_BADDELPASS) unless check_admin_pass(scalar $query->param("admin"));
 
 	my $thread=$query->param("thread");
 	delete_thread($thread);
@@ -102,7 +102,7 @@ elsif($task eq "permasagethread")
 }
 elsif($task eq "closethread")
 {
-	make_error(S_BADDELPASS) unless check_admin_pass($query->param("admin"));
+	make_error(S_BADDELPASS) unless check_admin_pass(scalar $query->param("admin"));
 
 	my $thread=$query->param("thread");
 	my $state=$query->param("state");
@@ -110,7 +110,7 @@ elsif($task eq "closethread")
 }
 elsif($task eq "rebuild")
 {
-	make_error(S_BADDELPASS) unless check_admin_pass($query->param("admin"));
+	make_error(S_BADDELPASS) unless check_admin_pass(scalar $query->param("admin"));
 
 	build_pages();
 	update_threads();

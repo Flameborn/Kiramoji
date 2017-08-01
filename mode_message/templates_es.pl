@@ -8,96 +8,97 @@ BEGIN { require 'wakautils.pl' }
 # Interface strings
 #
 
-use constant S_NAVIGATION => 'Navigation:';
-use constant S_RETURN => 'Return';
-use constant S_ENTIRE => 'Entire thread';
-use constant S_LAST50 => 'Last 50 posts';
-use constant S_FIRST100 => 'First 100 posts';
-use constant S_PREV100 => 'Previous 100 posts';
-use constant S_NEXT100 => 'Next 100 posts';
-use constant S_TOP => 'Thread list';
-use constant S_BOARDLOOK => 'Board look:';
-use constant S_MANAGE => 'Manage';
-use constant S_REBUILD => 'Rebuild caches';
-use constant S_ALLTHREADS => 'All threads';
-use constant S_NEWTHREAD_TITLE => 'New thread';
-use constant S_NAME => 'Name:';
-use constant S_LINK => 'Link:';
-use constant S_FORCEDANON => '(Anonymous posting is being enforced)';
-use constant S_CAPTCHA => 'Verification:';
-use constant S_TITLE => 'Title:';
-use constant S_NEWTHREAD => 'Create new thread';
-use constant S_IMAGE => 'Image:';
-use constant S_IMAGEDIM => 'Image: ';
-use constant S_NOTHUMBNAIL => 'No<br />thumbnail';
-use constant S_REPLY => 'Reply';
-use constant S_LISTEXPL => 'Jump to thread list';
-use constant S_PREVEXPL => 'Jump to previous thread';
-use constant S_NEXTEXPL => 'Jump to next thread';
+use constant S_NAVIGATION => 'Navegación:';
+use constant S_RETURN => 'Volver';
+use constant S_ENTIRE => 'Entrada completa';
+use constant S_LAST50 => 'Últimos 50 posts';
+use constant S_FIRST100 => 'Primeros 100 posts';
+use constant S_PREV100 => '100 posts anteriores';
+use constant S_NEXT100 => '100 posts siguientes';
+use constant S_TOP => 'Lista de Entradas';
+use constant S_BOARDLOOK => 'Tema:';
+use constant S_MANAGE => 'Administrar';
+use constant S_REBUILD => 'Reconstruir cachés';
+use constant S_ALLTHREADS => 'Todas las entradas';
+use constant S_NEWTHREAD_TITLE => 'Nueva entrada';
+use constant S_NAME => 'Nombre:';
+use constant S_LINK => 'Enlace:';
+use constant S_FORCEDANON => '(Lo posts anónimos son requeridos)';
+use constant S_CAPTCHA => 'Verificación:';
+use constant S_TITLE => 'Título:';
+use constant S_NEWTHREAD => 'Crear nueva entrada';
+use constant S_IMAGE => 'Imagen:';
+use constant S_IMAGEDIM => 'Imagen: ';
+use constant S_NOTHUMBNAIL => 'No<br />miniatura';
+use constant S_REPLY => 'Respuesta';
+use constant S_LISTEXPL => 'Saltar a lista de entradas';
+use constant S_PREVEXPL => 'Saltar a entrada anterior';
+use constant S_NEXTEXPL => 'Saltar a entrada siguiente';
 use constant S_LISTBUTTON => '&#9632;';
 use constant S_PREVBUTTON => '&#9650;';
 use constant S_NEXTBUTTON => '&#9660;';
-use constant S_TRUNC => 'Post too long. Click to view the <a href="%s" rel="nofollow">whole post</a> or the <a href="%s">thread page</a>.';
+use constant S_TRUNC => 'Post demasiado largo. Haz click para ver <a href="%s" rel="nofollow">la entrada entera</a> o <a href="%s">la página de la entrada</a>.';
 use constant S_PERMASAGED => ', permasaged';
-use constant S_POSTERNAME => 'Name:';
-use constant S_DELETE => 'Del';
-use constant S_USERDELETE => 'Post deleted by user.';
-use constant S_MODDELETE => 'Post deleted by moderator.';
-use constant S_CLOSEDTHREAD => 'This thread has been closed. You cannot post in this thread any longer.';
-use constant S_SPAMTRAP => 'Leave these fields empty (spam trap): ';
+use constant S_POSTERNAME => 'Nombre:';
+use constant S_DELETE => 'Borrar';
+use constant S_USERDELETE => 'Post borrado por el usuario.';
+use constant S_MODDELETE => 'Post borrado por un moderador.';
+use constant S_CLOSEDTHREAD => 'Esta entrada ha sido cerrada. Ya no puedes postear en esta entrada.';
+use constant S_SPAMTRAP => 'Deja estos campos en blanco (trampa de spam): ';
 
-use constant S_MOREOPTS => "More options...";
-use constant S_FORMATTING => "Formatting:";
-use constant S_SAVE_FORMATTING => "Always use this formatting";
-use constant S_TRIPVARIANT => "Tripcode Variant:";
+use constant S_MOREOPTS => "Más opciones...";
+use constant S_FORMATTING => "Formato:";
+use constant S_SAVE_FORMATTING => "Usar siempre este formato";
+use constant S_TRIPVARIANT => "Variante de Tripcode:";
 use constant S_FORMATS => {none=>"None",waka=>"WakabaMark",html=>"HTML",raw=>"Raw HTML",aa=>"Text Art",bbcode=>"BBCode"};
 use constant S_DESCRIBE_FORMATS => {
-	none=>'Only auto-links URLs and >> references.',
-	waka=>'Simple text formatting. See the description <a href="http://wakaba.c3.cx/docs/docs.html#WakabaMark">here</a>.',
-	html=>'Allowed tags: <em>'.describe_allowed(ALLOWED_HTML).'</em>.',
-	aa=>'Only auto-links URLs and >> references, and sets the font to be suitable for SJIS art.',
+	none=>'olo auto-enlaces URLs y referencias >>.',
+	waka=>'Formato de texto simple. Descripción <a href="http://wakaba.c3.cx/docs/docs.html#WakabaMark">aquí</a>.',
+	html=>'Tags permitidas: <em>'.describe_allowed(ALLOWED_HTML).'</em>.',
+	aa=>'Solo auto-enlaces URLs y referencias >>, y establece la fuente para funcionar con arte SJIS.',
 	bbcode=>'Everyone\'s favorite touring complete markup language.'
 };
 
 use constant S_COL_NUM => "Num";
-use constant S_COL_TITLE => "Title";
+use constant S_COL_TITLE => "Título";
 use constant S_COL_POSTS => "Posts";
-use constant S_COL_DATE => "Last post";
-use constant S_COL_SIZE => "File size";
+use constant S_COL_DATE => "Último post";
+use constant S_COL_SIZE => "Tamaño de archivo";
 use constant S_LIST_PERMASAGED => 'permasaged';
-use constant S_LIST_CLOSED => 'closed';
+use constant S_LIST_CLOSED => 'cerrado';
 
-use constant S_FRONT => 'Front page';								# Title of the front page in page list
+use constant S_FRONT => 'Página inicial';								# Title of the front page in page list
 
 use constant S_PREV => 'Previous';									# Defines previous button
 use constant S_FIRSTPG => 'Previous';								# Defines previous button
 use constant S_NEXT => 'Next';										# Defines next button
 use constant S_LASTPG => 'Next';									# Defines next button
 
+
 #
 # Error strings
 #
 
-use constant S_BADCAPTCHA => 'Wrong verification code entered.';			# Error message when the captcha is wrong
-use constant S_UNJUST => 'Posting must be done through a POST request.';	# Error message on an unjust POST - prevents floodbots or ways not using POST method?
-use constant S_NOTEXT => 'No text entered.';								# Error message for no text entered in to title/comment
-use constant S_NOTITLE => 'No title entered.';								# Error message for no title entered
-use constant S_NOTALLOWED => 'Posting not allowed.';						# Error message when the posting type is forbidden for non-admins
-use constant S_TOOLONG => 'The %s field is too long, by %d characters.';	# Error message for too many characters in a given field
-use constant S_UNUSUAL => 'Abnormal reply.';								# Error message for abnormal reply? (this is a mystery!)
-use constant S_SPAM => 'Spammers are not welcome here!';					# Error message when detecting spam
-use constant S_THREADCOLL => 'Somebody else tried to post a thread at the same time. Please try again.';		# If two people create threads during the same second
-use constant S_NOTHREADERR => 'Thread specified does not exist.';			# Error message when a non-existant thread is accessed
-use constant S_BADDELPASS => 'Password incorrect.';							# Error message for wrong password (when user tries to delete file)
-use constant S_NOTWRITE => 'Cannot write to directory.';					# Error message when the script cannot write to the directory, the chmod (777) is wrong
-use constant S_NOTASK => 'Script error; no valid task specified.';			# Error message when calling the script incorrectly
-use constant S_NOLOG => 'Couldn\'t write to log.txt.';						# Error message when log.txt is not writeable or similar
-use constant S_TOOBIG => 'The file you tried to upload is too large.';		# Error message when the image file is larger than MAX_KB
-use constant S_EMPTY => 'The file you tried to upload is empty.';			# Error message when the image file is 0 bytes
-use constant S_BADFORMAT => 'File format not allowed.';						# Error message when the file is not in a supported format.
-use constant S_DUPE => 'This file has already been posted <a href="%s">here</a>.';	# Error message when an md5 checksum already exists.
-use constant S_DUPENAME => 'A file with the same name already exists.';		# Error message when an filename already exists.
-use constant S_THREADCLOSED => 'This thread is closed.';					# Error message when posting in a legen^H^H^H^H^H closed thread
+use constant S_BADCAPTCHA => 'Código de verificación incorrecto.';			# Error message when the captcha is wrong
+use constant S_UNJUST => 'Los posts deben hacerse mediante un post request.';	# Error message on an unjust POST - prevents floodbots or ways not using POST method?
+use constant S_NOTEXT => 'No hay texto.';								# Error message for no text entered in to title/comment
+use constant S_NOTITLE => 'No has introducido un título.';								# Error message for no title entered
+use constant S_NOTALLOWED => 'No se permite publicar.';						# Error message when the posting type is forbidden for non-admins
+use constant S_TOOLONG => 'El campo de %s es demasiado largo por %d caracteres.';	# Error message for too many characters in a given field
+use constant S_UNUSUAL => 'Rpuesta anormal.';								# Error message for abnormal reply? (this is a mystery!)
+use constant S_SPAM => 'Los spammers no son bienvenidos aquí!';					# Error message when detecting spam
+use constant S_THREADCOLL => 'Alguien más ha intentado publicar un post al mismo timepo. Prueba de nuevo.';		# If two people create threads during the same second
+use constant S_NOTHREADERR => 'La entrada especificada no existe.';			# Error message when a non-existant thread is accessed
+use constant S_BADDELPASS => 'Contraseña incorrecta.';							# Error message for wrong password (when user tries to delete file)
+use constant S_NOTWRITE => 'No se puede escribir al directorio.';					# Error message when the script cannot write to the directory, the chmod (777) is wrong
+use constant S_NOTASK => 'Error de script; No hay tarea válida especificada.';			# Error message when calling the script incorrectly
+use constant S_NOLOG => 'No se puede escribir a log.txt.';						# Error message when log.txt is not writeable or similar
+use constant S_TOOBIG => 'El archivo que has intentado cargar es demasiado grande.';		# Error message when the image file is larger than MAX_KB
+use constant S_EMPTY => 'El archivo que has intntado cargar está bacío.';			# Error message when the image file is 0 bytes
+use constant S_BADFORMAT => 'Formato de archivo no permitido.';						# Error message when the file is not in a supported format.
+use constant S_DUPE => 'Este archivo ya ha sido publicado <a href="%s">aquí</a>.';	# Error message when an md5 checksum already exists.
+use constant S_DUPENAME => 'Ya existe un archivo con ese nombre.';		# Error message when an filename already exists.
+use constant S_THREADCLOSED => 'Esta entrada está cerrada.';					# Error message when posting in a legen^H^H^H^H^H closed thread
 
 
 
@@ -156,7 +157,7 @@ use constant POSTING_FORM_TEMPLATE => compile_template(q{
 		<if !FORCED_ANON><const S_NAME></if>
 		<if FORCED_ANON><const S_LINK></if>
 	</td><td>
-		<if !FORCED_ANON><input type="text" name="field_a" size="19" maxlength="<const MAX_FIELD_LENGTH>" aria-label="<const S_NAME>"/> <const S_LINK> </if>
+		<if !FORCED_ANON><input type="text" name="field_a" size="19" maxlength="<const MAX_FIELD_LENGTH>" aria-label="<const S_NAME>" /> <const S_LINK> </if>
 		<if FORCED_ANON><input type="hidden" name="field_a" /></if>
  		<input type="text" name="field_b" size="19" maxlength="<const MAX_FIELD_LENGTH>" aria-label="<const S_LINK>"/>
 		<if $thread><input type="submit" value="<const S_REPLY>" /></if>
@@ -168,7 +169,7 @@ use constant POSTING_FORM_TEMPLATE => compile_template(q{
 <if ENABLE_CAPTCHA><tr>
 	<td><const S_CAPTCHA></td>
 	<td>
-		<input type="text" name="captcha" size="19" aria-label="Captcha:"/>
+		<input type="text" name="captcha" size="19" aria-label="Verificación:"/>
 		<img class="<var $captchaclass>" src="<const expand_filename('captcha.pl')>?selector=.<var $captchaclass>" />
 	</td>
 </tr></if>
@@ -195,7 +196,7 @@ use constant POSTING_FORM_TEMPLATE => compile_template(q{
 
 <tr>
 	<td></td>
-	<td><textarea name="comment" cols="64" rows="5" onfocus="size_field('<var $formid>',15)" onblur="size_field('<var $formid>',5)" aria-label="Comment"></textarea></td>
+	<td><textarea name="comment" cols="64" rows="5" onfocus="size_field('<var $formid>',15)" onblur="size_field('<var $formid>',5)" aria-label="Texto"></textarea></td>
 </tr>
 
 <if $allowimages><tr>
@@ -222,7 +223,7 @@ use constant MAIN_PAGE_TEMPLATE => compile_template( GLOBAL_HEAD_INCLUDE.q{
 
 <div class="threadnavigation">
 <a href="#menu" title="<const S_LISTEXPL>" aria-label="<const S_TOP>"><const S_LISTBUTTON></a>
-<a href="#1" title="<const S_NEXTEXPL>" aria-label="First Thread"><const S_NEXTBUTTON></a>
+<a href="#1" title="<const S_NEXTEXPL>" aria-label="Primero Entrada"><const S_NEXTBUTTON></a>
 </div>
 
 <div id="rules">
@@ -360,7 +361,6 @@ use constant MAIN_PAGE_TEMPLATE => compile_template( GLOBAL_HEAD_INCLUDE.q{
 <if !$nextpage><const S_LASTPG></if>
 
 </td></tr></tbody></table><br clear="all" /></if>
-
 
 }.GLOBAL_FOOT_INCLUDE,KEEP_MAINPAGE_NEWLINES);
 

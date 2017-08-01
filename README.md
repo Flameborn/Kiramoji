@@ -1,0 +1,82 @@
+# Kareha
+
+Kareha is an anonymous message board, popular in Japan. No registration is required to post.
+
+It can operate in two modes, as an image board or a text board.
+
+Kareha is an incredibly impressive achievement, many features are pushing Perl's boundaries, mostly with core dependencies and not a single C extension.
+
+## About this version
+
+This is a modified version of The original [Kareha](https://wakaba.c3.cx/s/web/wakaba_kareha), written by Dag Ågren/WAHa.06x36 in Perl. Later, it was further modified by [hotaru2k3](https://github.com/hotaru2k3), fixing WebKit/related issues, as well as adding some minor changes.
+
+This fork is based on the above mentioned modified version, with a few changes added here and there and it is probably the most recent version out there.
+
+I am by no means a Perl expert, so pull requests and issues are welcome!
+
+This is the version that runs on our [KiraMoji page](https://kiramoji.ga)
+
+There exists an older [PSGI version here](https://github.com/marlencrabapple/kareha-psgi) based on 3.1.4.
+
+Similarly to Kareha's license, this mod is released into the public domain.
+
+## Changes in this version
+
+_Note_: All changes apply to the text board mode (i.e. message mode), unless mentioned otherwise.
+
+- Added Spanish template (thanks to [Guilevi](https://github.com/guilevi))
+- Templates are modified to have some [ARIA](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA) attributes, edit fields in particular, as well as some links are properly labelled for screen readers.
+- If the board operates in paged mode, page navigation controls are displayed at the bottom of the page for text boards.
+- param-related bugs have been fixed, so there are no CGI warnings anymore.
+
+## Known issues
+
+- The Japanese template does not have the ARIA fixes nor pagination, as I unfortunately do not speak Japanese. Pull requests are welcome!
+
+## Changes in hotaru2k3!s fork
+
+This is a modified version of Kareha. some bugs that can cause xhtml errors have been fixed, and a few minor features have been added.
+
+## Installation
+
+### Requirements
+
+First and foremost, you will need a webserver. Apache is a good choice, or [Caddy](https://caddyserver.com) if you prefer something more modern and awesome. When you download it, you will need the [http.cgi](https://caddyserver.com/docs/http.cgi) middleware. Add it in the plugins section.
+
+Kareha does not require much, it should work on most distributions out of the box. The only exception is Perl's CGI module. You can use a package manager, such as cpan or cpanminus to install it.
+
+In case your server does not come with Perl by default, you can install it via your package manager. Refer to its documentation for help, usually _man packageManagerName_ will do the trick.
+
+### Setting up Kareha
+
+1. git clone https://github.com/Flameborn/Kareha
+2. Copy everything to your cgi-bin directory.
+3. Make sure _kareha.pl_ and _admin.pl_ has execute permission (+x).
+4. Make sure that the main _Kareha_ directory and the _res_ directory are writable (+w).
+5. Copy everything from one of the _mode_ directories, either _message_ or _image_, depending on what kind of board you wish to have.
+6. Modify _config.pl_, in particular uncomment and change _ADMIN_PASS__ and _SECRET_.
+7. Open _YourDomain.com/kareha.pl_ to generate the index page.
+
+Enjoy!
+
+## FAQ
+
+### How do I run multiple boards?
+
+You can install Kareha in multiple directories (see the installation steps above), or you can symlink the files. The _Lndir_ command is quite useful to do this.
+
+### What are tripcodes and Capcodes and how do I use them?
+
+Tripcodes are special hashes of a poster, they are generally used for authenticity. You can use them in the _name_ field when posting. For example:
+
+_YourName#password_ (less secure)
+
+Or:
+
+_YourName##password_ (more secure, based on the SECRET you've changed in the config file.)
+
+Capcodes are defined in _config.pl_, and they are used to replace shown tripcodes with arbitrary text. For example: _!!S5RPiYbB_ could be replaced with _Admin_.
+
+### What is sage and how do I use it?
+
+Sage is a way to post without bumping a thread, i.e. moving it to the top of the list. You can post using _sage_ by entering _sage_ in the _Link_ field.
