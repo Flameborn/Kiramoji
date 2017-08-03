@@ -22,12 +22,11 @@ Similarly to Kareha's license, this mod is released into the public domain.
 
 ## Changes in this version
 
-_Note_: All changes apply to the text board mode (i.e. message mode), unless mentioned otherwise.
-
 - Added Spanish template (thanks to [Guilevi](https://github.com/guilevi))
 - Templates are modified to have some [ARIA](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA) attributes, edit fields in particular, as well as some links are properly labelled for screen readers.
 - If the board operates in paged mode, page navigation controls are displayed at the bottom of the page for text boards.
 - param-related bugs have been fixed, so there are no CGI warnings anymore.
+- Added a dice roller for the link field. The syntax is: size d NumberOfDice +/-modifier (optional) a/d (ascending/descending sorting, optional). (for example 6d5+100d will roll 5 6-sided dice, add 100 and sort the result in descending order)
 
 ## Known issues
 

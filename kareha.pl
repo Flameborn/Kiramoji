@@ -9,6 +9,7 @@ use Data::Dumper;
 use Fcntl ':flock';
 
 use lib '.';
+use List::Util qw( sum );
 BEGIN { require 'config.pl'; }
 BEGIN { require 'config_defaults.pl'; }
 BEGIN { require 'templates.pl'; }
@@ -400,6 +401,26 @@ sub post_stuff($$$$$$$$$$$$$)
 
 	# format the comment
 	$comment=format_comment($comment,$markup,$thread);
+
+	#Dice
+	if ($link =~ /roll\s*	#roll
+		(\d+)			#$1
+		\s*d\s*		#letter d
+		(\d+)			#$2
+		\s*			#space
+		([+-]\d+)?		#$3
+		([ad])?		#$4
+	/xi) {
+	my $derp = ", ";					#array element separator
+	my @results = map { int( rand($1) ) +1} (1 .. $2);	#generate dice results
+	my $sum = sum(@results) + $3;				#adds the results together, plus the modifier
+		@results = sort { $a <=> $b } @results if $4 eq 'a';
+		@results = sort { $b <=> $a } @results if $4 eq 'd';
+			my $roll = join($derp, @results);			#adds commas to the array elements
+			my $modifier = ", $3" if defined $3;			#http://en.wikipedia.org/wiki/Oxford_comma
+			my $rolled = "<strong>Rolled: $roll$modifier = $sum</strong>";	#e.g. "Rolled: 2, 3, +1 = 6", in bold
+			$comment = $rolled . $comment;
+	}
 
 	# generate date
 	my $date=make_date($time,DATE_STYLE);
