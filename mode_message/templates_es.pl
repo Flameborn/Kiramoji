@@ -69,11 +69,6 @@ use constant S_LIST_CLOSED => 'cerrado';
 
 use constant S_FRONT => 'Página inicial';								# Title of the front page in page list
 
-use constant S_PREV => 'Previous';									# Defines previous button
-use constant S_FIRSTPG => 'Previous';								# Defines previous button
-use constant S_NEXT => 'Next';										# Defines next button
-use constant S_LASTPG => 'Next';									# Defines next button
-
 
 #
 # Error strings
@@ -342,25 +337,6 @@ use constant MAIN_PAGE_TEMPLATE => compile_template( GLOBAL_HEAD_INCLUDE.q{
 </div></div>
 
 <script type="text/javascript">set_new_inputs("threadform");</script>
-
-<if PAGE_GENERATION eq 'paged'><table border="1"><tbody><tr><td>
-
-<if $prevpage><form method="get" action="<var $prevpage>"><input value="<const S_PREV>" type="submit" /></form></if>
-<if !$prevpage><const S_FIRSTPG></if>
-
-</td><td>
-
-<loop $pages>
-	<if $page ne $current>[<a href="<var $filename>"><var $page></a>]</if>
-	<if $page eq $current>[<var $page>]</if>
-</loop>
-
-</td><td>
-
-<if $nextpage><form method="get" action="<var $nextpage>"><input value="<const S_NEXT>" type="submit" /></form></if>
-<if !$nextpage><const S_LASTPG></if>
-
-</td></tr></tbody></table><br clear="all" /></if>
 
 }.GLOBAL_FOOT_INCLUDE,KEEP_MAINPAGE_NEWLINES);
 
