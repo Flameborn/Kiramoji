@@ -27,6 +27,7 @@ Similarly to Kareha's license, this mod is released into the public domain.
 - If the board operates in paged mode, page navigation controls are displayed at the bottom of the page for text boards.
 - param-related bugs have been fixed, so there are no CGI warnings anymore.
 - Added a dice roller for the link field. The syntax is: size d NumberOfDice +/-modifier (optional) a/d (ascending/descending sorting, optional). (for example 6d5+100d will roll 5 6-sided dice, add 100 and sort the result in descending order)
+- Switched the encoding to UTF-8. This means that messages, templates and the config file are expected to be encoded using UTF-8.
 
 ## Known issues
 
@@ -42,7 +43,7 @@ This is a modified version of Kareha. some bugs that can cause xhtml errors have
 
 First and foremost, you will need a webserver. Apache is a good choice, or [Caddy](https://caddyserver.com) if you prefer something more modern and awesome. When you download it, you will need the [http.cgi](https://caddyserver.com/docs/http.cgi) middleware. Add it in the plugins section.
 
-Kareha does not require much, it should work on most distributions out of the box. The only exception is Perl's CGI module. You can use a package manager, such as cpan or cpanminus to install it.
+Kareha does not require much, it should work on most distributions out of the box. The only exceptions are Perl's CGI and utf8::all modules. You can use a package manager, such as cpan or cpanminus to install them.
 
 In case your server does not come with Perl by default, you can install it via your package manager. Refer to its documentation for help, usually _man packageManagerName_ will do the trick.
 
@@ -79,3 +80,21 @@ Capcodes are defined in _config.pl_, and they are used to replace shown tripcode
 ### What is sage and how do I use it?
 
 Sage is a way to post without bumping a thread, i.e. moving it to the top of the list. You can post using _sage_ by entering _sage_ in the _Link_ field.
+
+### My board's title contains accented characters and it does not display correctly. Why?
+
+Kareha is now using UTF-8. Please make sure that your configuration file _config.pl_ is encoded as UTF-8.
+
+### My template has accented characters and it does not display correctly. Why?
+
+Kareha is now using UTF-8. Please make sure that your template file _templates.pl_ for your language (e.g. JP) is encoded as UTF-8.
+
+### How do I switch to a new template?
+
+You need to edit __kareha.pl_ and change the line:
+
+_BEGIN { require 'templates.pl'; }_
+
+to reflect the new templates filename.
+
+An alternative method is to rename whatever templates file you wish to have to templates.pl. Make sure you have a backup version of the old _templates.pl_ file, in case you wish to switch back to the original.

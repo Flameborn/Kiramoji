@@ -4,7 +4,9 @@ use CGI::Carp qw(fatalsToBrowser);
 
 use strict;
 
-use CGI;
+use CGI "-utf8";
+use utf8::all;
+
 use Data::Dumper;
 use Fcntl ':flock';
 

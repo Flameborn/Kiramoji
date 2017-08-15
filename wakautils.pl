@@ -4,6 +4,7 @@ use strict;
 
 use Time::Local;
 use Socket;
+use utf8::all;
 
 my $has_md5=0;
 eval 'use Digest::MD5 qw(md5)';
@@ -333,7 +334,7 @@ sub include($)
 {
 	my ($filename)=@_;
 
-	open FILE,$filename or return '';
+	open FILE,"<:encoding(UTF-8)",$filename or return '';
 	my $file=do { local $/; <FILE> };
 
 	$file=~s/^\s+//;
@@ -391,7 +392,7 @@ sub decode_string($;$$)
 	my ($str,$charset,$noentities)=@_;
 	my $use_unicode=$has_encode && $charset;
 
-	$str=decode($charset,$str) if $use_unicode;
+	#$str=decode($charset,$str) if $use_unicode;
 
 	$str=~s{(&#([0-9]*)([;&])|&#([x&])([0-9a-f]*)([;&]))}{
 		my $ord=($2 or hex $5);
@@ -618,8 +619,8 @@ sub cookie_encode($;$)
 	{
 		if($charset)
 		{
-			require Encode;
-			$str=Encode::decode($charset,$str);
+			#require Encode;
+			#$str=Encode::decode($charset,$str);
 			$str=~s/&\#([0-9]+);/chr $1/ge;
 			$str=~s/&\#x([0-9a-f]+);/chr hex $1/gei;
 		}
@@ -1037,7 +1038,7 @@ sub read_array($)
 	else
 	{
 		open FILE,$file or return ();
-		binmode FILE;
+		binmode (FILE,":utf8");
 		my @array=map { s/\r?\n?$//; $_ } <FILE>;
 		close FILE;
 		return @array;
@@ -1058,7 +1059,7 @@ sub write_array($@)
 		my $rndname2="__".make_random_string(12).".dat";
 		if(open FILE,">$rndname1")
 		{
-			binmode FILE;
+			binmode (FILE,':utf8');
 			if(print FILE join "\n",@array)
 			{
 				close FILE;
@@ -1125,7 +1126,7 @@ sub spam_engine(%)
 	my @fields=@included_fields?@included_fields:$query->param;
 	@fields=grep !$excluded_fields{$_},@fields if %excluded_fields;
 #	my $fulltext=join "\n",map decode_string($query->param($_),$charset),@fields;
-	my $fulltext=join "\n",map $query->param($_),@fields;
+	my $fulltext=join "\n",map scalar $query->param($_),@fields;
 	study $fulltext;
 
 	spam_screen($query) if $spam_checker->($fulltext);
