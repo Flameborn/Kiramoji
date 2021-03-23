@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/local/bin/perl
 
 use CGI::Carp qw(fatalsToBrowser);
 
@@ -12,6 +12,7 @@ use Fcntl ':flock';
 
 use lib '.';
 use List::Util qw( sum );
+use JSON::PP 'decode_json';
 BEGIN { require 'config.pl'; }
 BEGIN { require 'config_defaults.pl'; }
 BEGIN { require 'templates.pl'; }
@@ -602,17 +603,7 @@ sub make_anonymous($$$)
 
 	srand unpack "N",hide_data($string,4,"silly",SECRET);
 
-	return cfg_expand("%G% %W%",
-		W => ["%B%%V%%M%%I%%V%%F%","%B%%V%%M%%E%","%O%%E%","%B%%V%%M%%I%%V%%F%","%B%%V%%M%%E%","%O%%E%","%B%%V%%M%%I%%V%%F%","%B%%V%%M%%E%"],
-		B => ["B","B","C","D","D","F","F","G","G","H","H","M","N","P","P","S","S","W","Ch","Br","Cr","Dr","Bl","Cl","S"],
-		I => ["b","d","f","h","k","l","m","n","p","s","t","w","ch","st"],
-		V => ["a","e","i","o","u"],
-		M => ["ving","zzle","ndle","ddle","ller","rring","tting","nning","ssle","mmer","bber","bble","nger","nner","sh","ffing","nder","pper","mmle","lly","bling","nkin","dge","ckle","ggle","mble","ckle","rry"],
-		F => ["t","ck","tch","d","g","n","t","t","ck","tch","dge","re","rk","dge","re","ne","dging"],
-		O => ["Small","Snod","Bard","Billing","Black","Shake","Tilling","Good","Worthing","Blythe","Green","Duck","Pitt","Grand","Brook","Blather","Bun","Buzz","Clay","Fan","Dart","Grim","Honey","Light","Murd","Nickle","Pick","Pock","Trot","Toot","Turvey"],
-		E => ["shaw","man","stone","son","ham","gold","banks","foot","worth","way","hall","dock","ford","well","bury","stock","field","lock","dale","water","hood","ridge","ville","spear","forth","will"],
-		G => ["Albert","Alice","Angus","Archie","Augustus","Barnaby","Basil","Beatrice","Betsy","Caroline","Cedric","Charles","Charlotte","Clara","Cornelius","Cyril","David","Doris","Ebenezer","Edward","Edwin","Eliza","Emma","Ernest","Esther","Eugene","Fanny","Frederick","George","Graham","Hamilton","Hannah","Hedda","Henry","Hugh","Ian","Isabella","Jack","James","Jarvis","Jenny","John","Lillian","Lydia","Martha","Martin","Matilda","Molly","Nathaniel","Nell","Nicholas","Nigel","Oliver","Phineas","Phoebe","Phyllis","Polly","Priscilla","Rebecca","Reuben","Samuel","Sidney","Simon","Sophie","Thomas","Walter","Wesley","William"],
-	);
+	return generate_pair();
 }
 
 sub make_id_code($$$$)
@@ -1412,4 +1403,21 @@ sub process_file($$$)
 	}
 
 	return ($filename,$ext,$size,$md5,$width,$height,$thumbnail,$tn_width,$tn_height);
+}
+
+sub generate_pair () {
+  open my $fh, '<', shift // 'words.json' or die "open('shift // 'words.json''): $!\n";
+  my $text = do { local $/; <$fh> };
+	my $words = decode_json $text;
+   my $noun_hash = $words->{nouns}[rand $words->{nouns}->@*];
+   my @alts = grep {defined && length} values $noun_hash->%*;
+   my $term = $alts[rand @alts];
+
+   my @adjectives = (
+      $words->{adjectives}->@*,
+      map { $_->@{qw< participle ing >} } $words->{verbs}->@*,
+   );
+   my $adjective = $adjectives[rand @adjectives];
+
+   return $adjective . ' ' . $term;
 }
