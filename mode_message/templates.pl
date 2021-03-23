@@ -350,8 +350,8 @@ use constant MAIN_PAGE_TEMPLATE => compile_template( GLOBAL_HEAD_INCLUDE.q{
 </td><td>
 
 <loop $pages>
-	<if $page ne $current>[<a href="<var $filename>"><var $page></a>]</if>
-	<if $page eq $current>[<var $page>]</if>
+	<if $page ne $current>[<a href="<var $filename>"><var $page + 1></a>]</if>
+	<if $page eq $current>[<var $page + 1>]</if>
 </loop>
 
 </td><td>
