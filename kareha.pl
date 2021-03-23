@@ -1418,6 +1418,7 @@ sub generate_pair () {
       map { $_->@{qw< participle ing >} } $words->{verbs}->@*,
    );
    my $adjective = $adjectives[rand @adjectives];
-
-   return $adjective . ' ' . $term;
+	my $res = $adjective . ' ' . $term;
+$res=~s/([\w']+)/\u\L$1/g;
+return $res;
 }
