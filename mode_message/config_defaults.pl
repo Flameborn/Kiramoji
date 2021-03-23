@@ -130,7 +130,7 @@ BEGIN {
 		'q'=>{},'code'=>{},
 	)} unless(defined &ALLOWED_HTML);
 
-	eval "use constant KAREHA_VERSION => '3.1.5'" unless(defined &KAREHA_VERSION);
+	eval "use constant KAREHA_VERSION => '3.2'" unless(defined &KAREHA_VERSION);
 }
 
 1;
