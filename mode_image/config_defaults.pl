@@ -14,7 +14,7 @@ BEGIN {
 	}
 
 	# Page look
-	eval "use constant TITLE => 'Kareha image board'" unless(defined &TITLE);
+	eval "use constant TITLE => 'Kiramoji image board'" unless(defined &TITLE);
 	eval "use constant SHOWTITLETXT => 1" unless(defined &SHOWTITLETXT);
 	eval "use constant SHOWTITLEIMG => 0" unless(defined &SHOWTITLEIMG);
 	eval "use constant TITLEIMG => 'title.jpg'" unless(defined &TITLEIMG);
@@ -23,7 +23,7 @@ BEGIN {
 	eval "use constant REPLIES_PER_THREAD => 10" unless(defined &REPLIES_PER_THREAD);
 	eval "use constant S_ANONAME => 'Anonymous'" unless(defined &S_ANONAME);
 	eval "use constant DEFAULT_STYLE => 'Futaba'" unless(defined &DEFAULT_STYLE);
-	eval "use constant FAVICON => 'kareha.ico'" unless(defined &FAVICON);
+	eval "use constant FAVICON => 'kiramoji.ico'" unless(defined &FAVICON);
 
 	# Limitations
 	eval "use constant ALLOW_TEXT_THREADS => 1" unless(defined &ALLOW_TEXT_THREADS);
@@ -102,7 +102,7 @@ BEGIN {
 	eval "use constant HTML_SELF => 'index.html'" unless(defined &HTML_SELF);
 	eval "use constant HTML_BACKLOG => ''" unless(defined &HTML_BACKLOG);
 	eval "use constant RSS_FILE => ''" unless(defined &RSS_FILE);
-	eval "use constant JS_FILE => 'kareha.js'" unless(defined &JS_FILE);
+	eval "use constant JS_FILE => 'kiramoji.js'" unless(defined &JS_FILE);
 
 	unless(defined &SPAM_FILES)
 	{
@@ -129,7 +129,7 @@ BEGIN {
 		'p'=>{},'br'=>{empty=>1},'blockquote'=>{},
 	)} unless(defined &ALLOWED_HTML);
 
-	eval "use constant KAREHA_VERSION => '3.2'" unless(defined &KAREHA_VERSION);
+	eval "use constant KIRAMOJI_VERSION => '3.2'" unless(defined &KIRAMOJI_VERSION);
 }
 
 1;

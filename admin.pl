@@ -11,10 +11,10 @@ use lib '.';
 BEGIN { require 'config.pl'; }
 BEGIN { require 'config_defaults.pl'; }
 BEGIN { require 'wakautils.pl'; }
-BEGIN { require 'kareha.pl'; }
+BEGIN { require 'kiramoji.pl'; }
 
 
-use constant KAREHA_SCRIPT => 'kareha.pl';
+use constant KIRAMOJI_SCRIPT => 'kiramoji.pl';
 
 
 
@@ -82,14 +82,14 @@ Edit: <loop $editable>
 </loop>
 <br />
 </if>
-<a href="<var $path><const KAREHA_SCRIPT>?task=rebuild&amp;admin=<var $adminpass>">Rebuild caches</a> |
+<a href="<var $path><const KIRAMOJI_SCRIPT>?task=rebuild&amp;admin=<var $adminpass>">Rebuild caches</a> |
 <a href="<var $path><const HTML_SELF>">Return to board</a> | 
 <a href="<var $self>/logout">Log out</a>
 </div>
 
 <div id="threads">
 
-<form action="<const KAREHA_SCRIPT>" method="post">
+<form action="<const KIRAMOJI_SCRIPT>" method="post">
 
 <div id="deletecontrols">
 <input type="hidden" name="task" value="delete" />
@@ -103,13 +103,13 @@ Edit: <loop $editable>
 	<h2><a href="<var $self>/<var $thread>/"><var $title or "Thread $thread"> (<var $postcount>)</a></h2>
 
 	<div class="threadcommands">
-	<if !$permasage><a href="<var $path><const KAREHA_SCRIPT>?task=permasagethread&amp;thread=<var $thread>&amp;state=1&amp;&amp;admin=<var $adminpass>&amp;r=1">permasage thread</a></if>
-	<if $permasage><a href="<var $path><const KAREHA_SCRIPT>?task=permasagethread&amp;thread=<var $thread>&amp;state=0&amp;&amp;admin=<var $adminpass>&amp;r=1">unpermasage thread</a></if>
+	<if !$permasage><a href="<var $path><const KIRAMOJI_SCRIPT>?task=permasagethread&amp;thread=<var $thread>&amp;state=1&amp;&amp;admin=<var $adminpass>&amp;r=1">permasage thread</a></if>
+	<if $permasage><a href="<var $path><const KIRAMOJI_SCRIPT>?task=permasagethread&amp;thread=<var $thread>&amp;state=0&amp;&amp;admin=<var $adminpass>&amp;r=1">unpermasage thread</a></if>
 	-
-	<if !$closed><a href="<var $path><const KAREHA_SCRIPT>?task=closethread&amp;thread=<var $thread>&amp;state=1&amp;&amp;admin=<var $adminpass>&amp;r=1">close thread</a></if>
-	<if $closed><a href="<var $path><const KAREHA_SCRIPT>?task=closethread&amp;thread=<var $thread>&amp;state=0&amp;&amp;admin=<var $adminpass>&amp;r=1">open thread</a></if>
+	<if !$closed><a href="<var $path><const KIRAMOJI_SCRIPT>?task=closethread&amp;thread=<var $thread>&amp;state=1&amp;&amp;admin=<var $adminpass>&amp;r=1">close thread</a></if>
+	<if $closed><a href="<var $path><const KIRAMOJI_SCRIPT>?task=closethread&amp;thread=<var $thread>&amp;state=0&amp;&amp;admin=<var $adminpass>&amp;r=1">open thread</a></if>
 	-
-	<a href="<var $path><const KAREHA_SCRIPT>?task=deletethread&amp;thread=<var $thread>&amp;&amp;admin=<var $adminpass>&amp;r=1">delete thread</a>
+	<a href="<var $path><const KIRAMOJI_SCRIPT>?task=deletethread&amp;thread=<var $thread>&amp;&amp;admin=<var $adminpass>&amp;r=1">delete thread</a>
 	</div>
 
 	<loop $posts>
@@ -119,8 +119,8 @@ Edit: <loop $editable>
 		Posted by: <var ADMIN_MASK_IPS?$masked_ip:$ip>
 		- Password: <var $password>
 		</label>
-		- <a href="<var $path><const KAREHA_SCRIPT>?task=delete&amp;delete=<var $thread>,<var $num>&amp;password=<var $adminpass>&amp;r=1">delete post</a>
-		<if $filename>- <a href="<var $path><const KAREHA_SCRIPT>?task=delete&amp;delete=<var $thread>,<var $num>&amp;fileonly=1&amp;password=<var $adminpass>&amp;r=1">delete file</a></if>
+		- <a href="<var $path><const KIRAMOJI_SCRIPT>?task=delete&amp;delete=<var $thread>,<var $num>&amp;password=<var $adminpass>&amp;r=1">delete post</a>
+		<if $filename>- <a href="<var $path><const KIRAMOJI_SCRIPT>?task=delete&amp;delete=<var $thread>,<var $num>&amp;fileonly=1&amp;password=<var $adminpass>&amp;r=1">delete file</a></if>
 		<if ADMIN_BAN_FILE>- <a href="<var $self>/ban?admin=<var $adminpass>&amp;id=<var $masked_ip>" onclick="return banclick(this)">ban IP</a></if>
 		</div>
 		<div class="posttext"><var $abbreviation or $text></div>
@@ -149,7 +149,7 @@ use constant EDIT_TEMPLATE => compile_template(ADMIN_HEAD_INCLUDE.q{
 </div>
 
 <if grep $filename eq $_,SPAM_FILES><p>
-This is the list of domain names Kareha considers to be spam.<br />
+This is the list of domain names Kiramoji considers to be spam.<br />
 You can find an up-to-date version
 <a href="http://wakaba.c3.cx/antispam/antispam.pl?action=view&amp;format=wakaba">here</a>,
 or you can get the <code>spam.txt</code> file directly <a href="http://wakaba.c3.cx/antispam/spam.txt">here</a>.
@@ -187,13 +187,13 @@ use constant LIST_TEMPLATE => compile_template(ADMIN_HEAD_INCLUDE.q{
 	<td align="right"><var int($size/1024)> kb</td>
 
 	<td>
-	<if !$permasage><a href="<var $path><const KAREHA_SCRIPT>?task=permasagethread&amp;thread=<var $thread>&amp;state=1&amp;&amp;admin=<var $adminpass>&amp;r=1">permasage</a></if>
-	<if $permasage><a href="<var $path><const KAREHA_SCRIPT>?task=permasagethread&amp;thread=<var $thread>&amp;state=0&amp;&amp;admin=<var $adminpass>&amp;r=1">unpermasage</a></if>
+	<if !$permasage><a href="<var $path><const KIRAMOJI_SCRIPT>?task=permasagethread&amp;thread=<var $thread>&amp;state=1&amp;&amp;admin=<var $adminpass>&amp;r=1">permasage</a></if>
+	<if $permasage><a href="<var $path><const KIRAMOJI_SCRIPT>?task=permasagethread&amp;thread=<var $thread>&amp;state=0&amp;&amp;admin=<var $adminpass>&amp;r=1">unpermasage</a></if>
 	</td>
 
 	<td>
-	<if !$closed><a href="<var $path><const KAREHA_SCRIPT>?task=closethread&amp;thread=<var $thread>&amp;state=1&amp;&amp;admin=<var $adminpass>&amp;r=1">close</a></if>
-	<if $closed><a href="<var $path><const KAREHA_SCRIPT>?task=closethread&amp;thread=<var $thread>&amp;state=0&amp;&amp;admin=<var $adminpass>&amp;r=1">open</a></if>
+	<if !$closed><a href="<var $path><const KIRAMOJI_SCRIPT>?task=closethread&amp;thread=<var $thread>&amp;state=1&amp;&amp;admin=<var $adminpass>&amp;r=1">close</a></if>
+	<if $closed><a href="<var $path><const KIRAMOJI_SCRIPT>?task=closethread&amp;thread=<var $thread>&amp;state=0&amp;&amp;admin=<var $adminpass>&amp;r=1">open</a></if>
 	</td>
 
 	</tr>

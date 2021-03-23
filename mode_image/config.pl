@@ -11,7 +11,7 @@
 #use constant CAPPED_TRIPS => ('!!example1'=>' capcode','!!example2'=>' <em>cap</em>');	# Admin tripcode hash, for startng threads when locked down, and similar. Format is '!trip'=>'capcode', where 'capcode' is what is shown instead of the trip. This can contain HTML, but keep it valid XHTML!
 
 # Page look
-#use constant TITLE => 'Kareha image board';	# Name of this image board
+#use constant TITLE => 'Kiramoji image board';	# Name of this image board
 #use constant SHOWTITLETXT => 1;				# Show TITLE at top (1: yes  0: no)
 #use constant SHOWTITLEIMG => 0;				# Show image at top (0: no, 1: single, 2: rotating)
 #use constant TITLEIMG => 'title.jpg';			# Title image (point to a script file if rotating)
@@ -20,7 +20,7 @@
 #use constant REPLIES_PER_THREAD => 10;			# Replies shown
 #use constant S_ANONAME => 'Anonymous';			# Defines what to print if there is no text entered in the name field
 #use constant DEFAULT_STYLE => 'Futaba';		# Default CSS style title
-#use constant FAVICON => 'kareha.ico';			# Path to the favicon for the board
+#use constant FAVICON => 'kiramoji.ico';			# Path to the favicon for the board
 
 # Limitations
 #use constant ALLOW_TEXT_THREADS => 1;			# Allow users to create text threads
@@ -103,7 +103,7 @@
 #use constant HTML_SELF => 'index.html';		# Name of main html file
 #use constant HTML_BACKLOG => '';				# Name of backlog html file
 #use constant RSS_FILE => '';					# RSS file. Set to '' to disable RSS support.
-#use constant JS_FILE => 'kareha.js';			# Location of the js file
+#use constant JS_FILE => 'kiramoji.js';			# Location of the js file
 #use constant SPAM_FILES => ('spam.txt');		# Spam definition files, as a Perl list.
                                                 # Hints: * Set all boards to use the same file for easy updating.
                                                 #        * Set up two files, one being the official list from

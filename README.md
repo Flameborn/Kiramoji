@@ -1,10 +1,12 @@
-# Kareha
+# Kiramoji
 
-Kareha is an anonymous message board, popular in Japan. No registration is required to post.
+Kiramoji is a modified version of Kareha. Kareha is an anonymous message board, popular in Japan. No registration is required to post.
 
-It can operate in two modes, as an image board or a text board.
+The concept of anonymous messages helps to focus on the conversations themselves, rather than on their authors. Should you wish to, you can, however, use the nickname everyone knows you by.
 
-Kareha is an incredibly impressive achievement, many features are pushing Perl's boundaries, mostly with core dependencies and not a single C extension.
+Kiramoji can operate in two modes, as an image board or a text board.
+
+Kareha itself is an incredibly impressive achievement, many features are pushing Perl's boundaries, mostly using core dependencies and not a single C extension.
 
 ## About this version
 
@@ -14,7 +16,7 @@ This fork is based on the above mentioned modified version, with a few changes a
 
 I am by no means a Perl expert, so pull requests and issues are welcome!
 
-This is the version that runs on our [KiraMoji page](https://kiramoji.ga)
+This is the version that runs on our [KiraMoji page](https://kiramoji.ga), feel free to stop by and say hi!
 
 There exists an older [PSGI version here](https://github.com/marlencrabapple/kareha-psgi) based on 3.1.4.
 
@@ -26,8 +28,9 @@ Similarly to Kareha's license, this mod is released into the public domain.
 - Templates are modified to have some [ARIA](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA) attributes, edit fields in particular, as well as some links are properly labelled for screen readers.
 - If the board operates in paged mode, page navigation controls are displayed at the bottom of the page for text boards.
 - param-related bugs have been fixed, so there are no CGI warnings anymore.
-- Added a dice roller for the link field. The syntax is: size d NumberOfDice +/-modifier (optional) a/d (ascending/descending sorting, optional). (for example 6d5+100d will roll 5 6-sided dice, add 100 and sort the result in descending order)
+- Added a dice roller for the link field. The syntax is: size d NumberOfDice +/-modifier (optional) a/d (ascending/descending sorting, optional). (for example 6d5+100d will roll 5 6-sided die, add 100 and sort the result in descending order)
 - Switched the encoding to UTF-8. This means that messages, templates and the config file are expected to be encoded using UTF-8.
+- Swapped out the *SillyName* generator to an adjective/noun-based one, based on https://github.polettix.it/ETOOBUSY/2020/01/28/generate-name/
 
 ## Known issues
 
@@ -41,21 +44,33 @@ This is a modified version of Kareha. some bugs that can cause xhtml errors have
 
 ### Requirements
 
-First and foremost, you will need a webserver. Apache is a good choice, or [Caddy](https://caddyserver.com) if you prefer something more modern and awesome. When you download it, you will need the [http.cgi](https://caddyserver.com/docs/http.cgi) middleware. Add it in the plugins section.
+First and foremost, you will need a webserver. Apache is a good choice, or [Caddy](https://caddyserver.com) if you prefer something more modern and awesome.
 
-Kareha does not require much, it should work on most distributions out of the box. The only exceptions are Perl's CGI and utf8::all modules. You can use a package manager, such as cpan or cpanminus to install them.
+#### Caddy 1
 
-In case your server does not come with Perl by default, you can install it via your package manager. Refer to its documentation for help, usually _man packageManagerName_ will do the trick.
+When you download/build Caddy, you will need the [http.cgi](https://caddyserver.com/docs/http.cgi) middleware. Add it in the plugins section.
 
-### Setting up Kareha
+#### Caddy 2
+
+When building Caddy 2 via [xcaddy](https://github.com/caddyserver/xcaddy), you can use https://github.com/aksdb/caddy-cgi instead. See examples on the same Github page.
+
+#### Kiramoji
+
+Kiramoji does not require much, it should work on most distributions out of the box. The only exceptions are Perl's *CGI* and *utf8::all* modules. You can use a package manager, such as cpan or cpanminus to install them.
+
+_WARNING_: Your version of Perl must be 5.24 or newer.
+
+In case your server does not come with Perl by default, you can install it via your package manager, or [perlbrew](https://github.com/gugod/App-perlbrew). Refer to its documentation for help, usually _man packageManagerName_ will do the trick.
+
+### Setting up Kiramoji
 
 1. git clone https://github.com/Flameborn/Kareha
 2. Copy everything to your cgi-bin directory.
-3. Make sure _kareha.pl_ and _admin.pl_ has execute permission (+x).
-4. Make sure that the main _Kareha_ directory and the _res_ directory are writable (+w).
+3. Make sure _kiramoji.pl_ and _admin.pl_ has execute permission (+x).
+4. Make sure that the main _Kiramoji_ directory and the _res_ directory are writable (+w).
 5. Copy everything from one of the _mode_ directories, either _message_ or _image_, depending on what kind of board you wish to have.
 6. Modify _config.pl_, in particular uncomment and change _ADMIN_PASS__ and _SECRET_.
-7. Open _YourDomain.com/kareha.pl_ to generate the index page.
+7. Open _YourDomain.com/kiramoji.pl_ to generate the index page.
 
 Enjoy!
 
@@ -63,7 +78,7 @@ Enjoy!
 
 ### How do I run multiple boards?
 
-You can install Kareha in multiple directories (see the installation steps above), or you can symlink the files. The _Lndir_ command is quite useful to do this.
+You can install Kiramoji in multiple directories (see the installation steps above), or you can symlink the files. The _Lndir_ command is quite useful to do this.
 
 ### What are tripcodes and Capcodes and how do I use them?
 
@@ -83,15 +98,15 @@ Sage is a way to post without bumping a thread, i.e. moving it to the top of the
 
 ### My board's title contains accented characters and it does not display correctly. Why?
 
-Kareha is now using UTF-8. Please make sure that your configuration file _config.pl_ is encoded as UTF-8.
+Kiramoji is now using UTF-8. Please make sure that your configuration file _config.pl_ is encoded as UTF-8.
 
 ### My template has accented characters and it does not display correctly. Why?
 
-Kareha is now using UTF-8. Please make sure that your template file _templates.pl_ for your language (e.g. JP) is encoded as UTF-8.
+Kiramoji is now using UTF-8. Please make sure that your template file _templates.pl_ for your language (e.g. JP) is encoded as UTF-8.
 
 ### How do I switch to a new template?
 
-You need to edit __kareha.pl_ and change the line:
+You need to edit __kiramoji.pl_ and change the line:
 
 _BEGIN { require 'templates.pl'; }_
 

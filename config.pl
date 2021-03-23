@@ -13,7 +13,7 @@ Content-Type: text/html
 <code>mode_*</code> directory into the board directory.</li>
 <li>Edit <code>config.pl</code> to suit your needs - remember to uncomment the lines
 you change.</li>
-<li>Access <code>kareha.pl</code> again (or just reload this page).</li>
+<li>Access <code>kiramoji.pl</code> again (or just reload this page).</li>
 </ul>
 </body>
 

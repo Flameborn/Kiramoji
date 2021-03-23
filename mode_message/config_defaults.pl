@@ -14,7 +14,7 @@ BEGIN {
 	}
 
 	# Page look
-	eval "use constant TITLE => 'Kareha message board'" unless(defined &TITLE);
+	eval "use constant TITLE => 'Kiramoji message board'" unless(defined &TITLE);
 	eval "use constant SHOWTITLETXT => 1" unless(defined &SHOWTITLETXT);
 	eval "use constant SHOWTITLEIMG => 0" unless(defined &SHOWTITLEIMG);
 	eval "use constant TITLEIMG => 'title.jpg'" unless(defined &TITLEIMG);
@@ -23,7 +23,7 @@ BEGIN {
 	eval "use constant REPLIES_PER_THREAD => 10" unless(defined &REPLIES_PER_THREAD);
 	eval "use constant S_ANONAME => 'Anonymous'" unless(defined &S_ANONAME);
 	eval "use constant DEFAULT_STYLE => 'Headline'" unless(defined &DEFAULT_STYLE);
-	eval "use constant FAVICON => 'kareha.ico'" unless(defined &FAVICON);
+	eval "use constant FAVICON => 'kiramoji.ico'" unless(defined &FAVICON);
 
 	# Limitations
 	eval "use constant ALLOW_TEXT_THREADS => 1" unless(defined &ALLOW_TEXT_THREADS);
@@ -80,7 +80,7 @@ BEGIN {
 	eval "use constant ALTERNATE_REDIRECT => 0" unless(defined &ALTERNATE_REDIRECT);
 	eval "use constant APPROX_LINE_LENGTH => 150" unless(defined &APPROX_LINE_LENGTH);
 	eval "use constant COOKIE_PATH => 'root'" unless(defined &COOKIE_PATH);
-	eval "use constant STYLE_COOKIE => 'karehastyle'" unless(defined &STYLE_COOKIE);
+	eval "use constant STYLE_COOKIE => 'kiramojistyle'" unless(defined &STYLE_COOKIE);
 	eval "use constant ENABLE_DELETION => 1" unless(defined &ENABLE_DELETION);
 	eval "use constant PAGE_GENERATION => 'single'" unless(defined &PAGE_GENERATION);
 	eval "use constant DELETE_FIRST => 'single'" unless(defined &DELETE_FIRST);
@@ -102,7 +102,7 @@ BEGIN {
 	eval "use constant HTML_SELF => 'index.html'" unless(defined &HTML_SELF);
 	eval "use constant HTML_BACKLOG => 'subback.html'" unless(defined &HTML_BACKLOG);
 	eval "use constant RSS_FILE => 'index.rss'" unless(defined &RSS_FILE);
-	eval "use constant JS_FILE => 'kareha.js'" unless(defined &JS_FILE);
+	eval "use constant JS_FILE => 'kiramoji.js'" unless(defined &JS_FILE);
 
 	unless(defined &SPAM_FILES)
 	{
@@ -130,7 +130,7 @@ BEGIN {
 		'q'=>{},'code'=>{},
 	)} unless(defined &ALLOWED_HTML);
 
-	eval "use constant KAREHA_VERSION => '3.2'" unless(defined &KAREHA_VERSION);
+	eval "use constant KIRAMOJI_VERSION => '3.2'" unless(defined &KIRAMOJI_VERSION);
 }
 
 1;

@@ -50,7 +50,7 @@ my %font=(
 my $query=new CGI;
 my $key=$query->cookie("captchakey");
 my $selector=($query->param("selector") or ".captcha");
-my $style=($query->cookie("karehastyle") or DEFAULT_STYLE);
+my $style=($query->cookie("kiramojistyle") or DEFAULT_STYLE);
 
 my @foreground=find_stylesheet_color($style,$selector);
 my @background=(0xff,0xff,0xff);
