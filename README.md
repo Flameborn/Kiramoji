@@ -64,7 +64,7 @@ In case your server does not come with Perl by default, you can install it via y
 
 ### Setting up Kiramoji
 
-1. git clone https://github.com/Flameborn/Kareha
+1. git clone https://github.com/Flameborn/Kiramoji
 2. Copy everything to your cgi-bin directory.
 3. Make sure _kiramoji.pl_ and _admin.pl_ has execute permission (+x).
 4. Make sure that the main _Kiramoji_ directory and the _res_ directory are writable (+w).
