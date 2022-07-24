@@ -67,6 +67,7 @@ BEGIN {
 	eval "use constant CAPTCHA_SPACING => 2.5" unless(defined &CAPTCHA_SPACING);
 
 	# Tweaks
+	eval "use constant PROTOCOL => 'http'" unless(defined &PROTOCOL);
 	eval "use constant CHARSET => 'utf-8'" unless(defined &CHARSET);
 	eval "use constant PROXY_CHECK => ()" unless(defined &PROXY_CHECK);
 	eval "use constant TRIM_METHOD => 1" unless(defined &TRIM_METHOD);

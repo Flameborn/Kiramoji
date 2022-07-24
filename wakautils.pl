@@ -308,11 +308,11 @@ sub compile_template($;$)
 
 	my $sub=eval
 		'no strict; sub { '.
-		'my $port=$ENV{SERVER_PORT}==80?"":":$ENV{SERVER_PORT}";'.
+		'my $port=$ENV{SERVER_PORT}==80 or $ENV{SERVER_PORT}==443?"":":$ENV{SERVER_PORT}";'.
 		'my $self=$ENV{SCRIPT_NAME};'.
-		'my $absolute_self="http://$ENV{SERVER_NAME}$port$ENV{SCRIPT_NAME}";'.
+		'my $absolute_self="$PROTOCOL://$ENV{SERVER_NAME}$port$ENV{SCRIPT_NAME}";'.
 		'my ($path)=$ENV{SCRIPT_NAME}=~m!^(.*/)[^/]+$!;'.
-		'my $absolute_path="http://$ENV{SERVER_NAME}$port$path";'.
+		'my $absolute_path="$PROTOCOL://$ENV{SERVER_NAME}$port$path";'.
 		'my %__v=@_;my %__ov;for(keys %__v){$__ov{$_}=$$_;$$_=$__v{$_};}'.
 		'my $res;'.
 		$code.
@@ -498,7 +498,7 @@ eval 'use IO::Socket::INET'; # Will fail on old Perl versions!
 sub get_http($;$$$)
 {
 	my ($url,$maxsize,$referer,$cacheprefix)=@_;
-	my ($host,$port,$doc)=$url=~m!^(?:http://|)([^/]+)(:[0-9]+|)(.*)$!;
+	my ($host,$port,$doc)=$url=~m!^(?:https?://|)([^/]+)(:[0-9]+|)(.*)$!;
 	$port=80 unless($port);
 
 	my $hash=encode_base64(rc4(null_string(6),"$host:$port$doc",0),"");

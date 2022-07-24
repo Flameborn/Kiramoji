@@ -65,6 +65,7 @@
 #use constant CAPTCHA_SPACING => 2.5;			# Letter spacing
 
 # Tweaks
+#use constant PROTOCOL => 'https';				# What protocol to use when generating URLs. Uncomment this if your web server uses https.
 #use constant CHARSET => 'utf-8';				# Character set to use, typically "utf-8" or "shift_jis". Remember to set Apache to use the same character set for .html files! (AddCharset shift_jis html)
 #use constant PROXY_CHECK => ();				# Ports to scan for proxies - NOT IMPLEMENTED.
 #use constant TRIM_METHOD => 1;					# Which threads to trim (0: oldest - like futaba 1: least active - furthest back)
