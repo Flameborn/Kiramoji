@@ -310,9 +310,9 @@ sub compile_template($;$)
 		'no strict; sub { '.
 		'my $port=$ENV{SERVER_PORT}==80 or $ENV{SERVER_PORT}==443?"":":$ENV{SERVER_PORT}";'.
 		'my $self=$ENV{SCRIPT_NAME};'.
-		'my $absolute_self="$PROTOCOL://$ENV{SERVER_NAME}$port$ENV{SCRIPT_NAME}";'.
+		'my $absolute_self="PROTOCOL://$ENV{SERVER_NAME}$port$ENV{SCRIPT_NAME}";'.
 		'my ($path)=$ENV{SCRIPT_NAME}=~m!^(.*/)[^/]+$!;'.
-		'my $absolute_path="$PROTOCOL://$ENV{SERVER_NAME}$port$path";'.
+		'my $absolute_path="PROTOCOL://$ENV{SERVER_NAME}$port$path";'.
 		'my %__v=@_;my %__ov;for(keys %__v){$__ov{$_}=$$_;$$_=$__v{$_};}'.
 		'my $res;'.
 		$code.
