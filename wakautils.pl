@@ -1,4 +1,4 @@
-# wakautils.pl v8.12
+# wakautils.pl v8.13
 
 use strict;
 
@@ -308,11 +308,12 @@ sub compile_template($;$)
 
 	my $sub=eval
 		'no strict; sub { '.
+		'my $protocol="http";'.
 		'my $port=$ENV{SERVER_PORT}==80 or $ENV{SERVER_PORT}==443?"":":$ENV{SERVER_PORT}";'.
 		'my $self=$ENV{SCRIPT_NAME};'.
-		'my $absolute_self="PROTOCOL://$ENV{SERVER_NAME}$port$ENV{SCRIPT_NAME}";'.
+		'my $absolute_self="$protocol://$ENV{SERVER_NAME}$port$ENV{SCRIPT_NAME}";'.
 		'my ($path)=$ENV{SCRIPT_NAME}=~m!^(.*/)[^/]+$!;'.
-		'my $absolute_path="PROTOCOL://$ENV{SERVER_NAME}$port$path";'.
+		'my $absolute_path="$protocol://$ENV{SERVER_NAME}$port$path";'.
 		'my %__v=@_;my %__ov;for(keys %__v){$__ov{$_}=$$_;$$_=$__v{$_};}'.
 		'my $res;'.
 		$code.
