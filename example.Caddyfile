@@ -1,0 +1,56 @@
+#Sample Caddyfile to use in front of Kiramoji.
+#
+#Please note: This is for Caddy v2 only.
+#Be sure to select the caddy-cgi module when downloading a binary,
+#or use https://github.com/aksdb/caddy-cgi when building via xcaddy.
+#
+#Global options
+{
+	#In case there's an issue with certificates
+	#email your@email.com
+	#Disable the admin endpoint, if not used. Typically for managing configurations.
+	#admin off
+	# Use verbose logging, if needed.
+	#debug
+	#If you use different ports for HTTP and HTTPS, change them here.
+	#http_port  8080
+	#https_port 8443
+	#Make sure the CGI module is ordered last. Do not change this.
+	order cgi last
+}
+
+#This is your domain for Kiramoji. Change it to your registered domain name.
+kiramoji.ga {
+	#Set compression.
+	encode zstd gzip
+	#Change dir to the directory of your Kiramoji installation
+	root * dir
+
+	#Add a file server, so that HTML files are served.
+	file_server {
+		#Don't serve Perl files and pass them on to the CGI module.
+		hide *.pl
+		pass_thru
+	}
+
+	#Block access to some non-public files and folders
+	respond /*.txt 404
+	respond /config.pl 404
+	respond /wakautils.pl 404
+	respond /mode_message/* 404
+	respond /mode_image/* 404
+
+	#Custom regexp matcher to capture the script name
+	@perlFile path_regexp perlScript ^(/.*\.pl)
+	#This is the CGI block. Change dir to the directory of your Kiramoji installation
+	cgi @perlFile dir{re.perlScript.1} {
+		#This dir subdirective is your CGI working directory.
+		#Change the second dir to the directory of your Kiramoji installation.
+		dir dir
+		#This is the name/arguments, Kiramoji needs this passed.
+		script_name {path}
+		#The server port Caddy listens on needs to be passed to Kiramoji.
+		env SERVER_PORT={server_port}
+	}
+	#You're done.
+}
