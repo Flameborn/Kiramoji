@@ -2,7 +2,7 @@
 
 Kiramoji is a modified version of Kareha. Kareha is an anonymous message board, popular in Japan. No registration is required to post.
 
-The concept of anonymous messages helps to focus on the conversations themselves, rather than on their authors. Should you wish to, you can, however, use the nickname everyone knows you by.
+Anonymous message boards tend to put more emphasis on posted content, freeing the message authors from limitations and negative experiences typically present when using other messaging platforms. Should you wish to, you can, however, use the nickname everyone knows you by.
 
 Kiramoji can operate in two modes, as an image board or a text board.
 
@@ -12,9 +12,9 @@ Kareha itself is an incredibly impressive achievement, many features are pushing
 
 This is a modified version of The original [Kareha](https://wakaba.c3.cx/s/web/wakaba_kareha), written by Dag Ågren/WAHa.06x36 in Perl. Later, it was further modified by [hotaru2k3](https://github.com/hotaru2k3), fixing WebKit/related issues, as well as adding some minor changes.
 
-This fork is based on the above mentioned modified version, with a few changes added here and there and it is probably the most recent version out there.
+This fork is based on the above mentioned modified version, with a few changes added here and there and it is probably the most recent and maintained version out there.
 
-I am by no means a Perl expert, so pull requests and issues are welcome!
+I am by no means a Perl expert, so pull requests and issues are more than welcome!
 
 This is the version that runs on our [KiraMoji page](https://kiramoji.ga), feel free to stop by and say hi!
 
@@ -31,6 +31,8 @@ Similarly to Kareha's license, this mod is released into the public domain.
 - Added a dice roller for the link field. The syntax is: size d NumberOfDice +/-modifier (optional) a/d (ascending/descending sorting, optional). (for example 6d5+100d will roll 5 6-sided die, add 100 and sort the result in descending order)
 - Switched the encoding to UTF-8. This means that messages, templates and the config file are expected to be encoded using UTF-8.
 - Swapped out the *SillyName* generator to an adjective/noun-based one, based on https://github.polettix.it/ETOOBUSY/2020/01/28/generate-name/
+- Added a *protocol* option which can be changed in *wakautils.pl*, used when generating page links and feeds.
+- A more up-to-date spam file, taken from the official Kiramoji instance.
 
 ## Known issues
 
@@ -70,7 +72,8 @@ In case your server does not come with Perl by default, you can install it via y
 4. Make sure that the main _Kiramoji_ directory and the _res_ directory are writable (+w).
 5. Copy everything from one of the _mode_ directories, either _message_ or _image_, depending on what kind of board you wish to have.
 6. Modify _config.pl_, in particular uncomment and change _ADMIN_PASS__ and _SECRET_.
-7. Open _YourDomain.com/kiramoji.pl_ to generate the index page.
+7. If your web server uses https and it does not redirect to it from http by default, edit *wakautils.pl* and change the *$protocol* variable to https. This is for generated links only, it does not add TLS support.
+8. Open _YourDomain.com/kiramoji.pl_ to generate the index page.
 
 Enjoy!
 
