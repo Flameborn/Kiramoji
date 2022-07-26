@@ -102,6 +102,7 @@ BEGIN {
 	eval "use constant HTML_SELF => 'index.html'" unless(defined &HTML_SELF);
 	eval "use constant HTML_BACKLOG => 'subback.html'" unless(defined &HTML_BACKLOG);
 	eval "use constant RSS_FILE => 'index.rss'" unless(defined &RSS_FILE);
+	eval "use constant ATOM_FILE => 'index.atom'" unless(defined &ATOM_FILE);
 	eval "use constant JS_FILE => 'kiramoji.js'" unless(defined &JS_FILE);
 
 	unless(defined &SPAM_FILES)

@@ -268,6 +268,7 @@ sub build_pages()
 
 	write_array(HTML_BACKLOG,BACKLOG_PAGE_TEMPLATE->(threads=>\@allthreads)) if(HTML_BACKLOG);
 	write_array(RSS_FILE,RSS_TEMPLATE->(threads=>\@allthreads)) if(RSS_FILE);
+	write_array(ATOM_FILE,ATOM_TEMPLATE->(threads=>\@allthreads)) if(ATOM_FILE);
 
 	# delete extra pages
 	# BUG: no deletion in monthly mode

@@ -2,8 +2,6 @@ use strict;
 
 BEGIN { require 'wakautils.pl' }
 
-
-
 #
 # Interface strings
 #
@@ -116,6 +114,10 @@ use constant GLOBAL_HEAD_INCLUDE => q{
 
 <if RSS_FILE>
 <link rel="alternate" title="RSS feed" href="<const expand_filename(RSS_FILE)>" type="application/rss+xml" />
+</if>
+
+<if ATOM_FILE>
+<link rel="alternate" title="Atom feed" href="<const expand_filename(ATOM_FILE)>" type="application/atom+xml" />
 </if>
 
 <loop $stylesheets>
@@ -557,6 +559,39 @@ use constant RSS_TEMPLATE => compile_template( q{
 
 </channel>
 </rss>
+});
+
+
+
+use constant ATOM_TEMPLATE => compile_template( q{
+<?xml version="1.0" encoding="<const CHARSET>"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+<title><const TITLE></title>
+<link href="<var $absolute_path><const HTML_SELF>"/>
+<link rel="self" href="<var $absolute_path><const ATOM_FILE>"/>
+<updated><var make_date('',"atomnow")></updated>
+<id><var $protocol>://<var $ENV{SERVER_NAME}>/</id>
+
+<loop $threads><if $num<=THREADS_DISPLAYED>
+	<entry>
+	<title><var $title> (<var $postcount>)</title>
+	<link href="<var $absolute_self>/<var $thread>/"/>
+	<id><var $absolute_self>/<var $thread>/</id>
+<updated><var make_date($lastmod,"atom")></updated>
+	<content type="html">
+	<var $$posts[0]{abbreviation}=~m!<div class="replytext".(.*?)</div!; clean_string($1) >
+	<if $abbreviated>&lt;p&gt;&lt;small&gt;Post too long, full version &lt;a href=&quot;<var $absolute_self>/<var $thread>/&quot;&gt;here&lt;/a&gt;.&lt;/small&gt;&lt;/p&gt;
+	</if>
+</content>
+	<author>
+		<name><var $author></name>
+	</author>
+	</entry>
+</if></loop>
+
+
+</feed>
 });
 
 

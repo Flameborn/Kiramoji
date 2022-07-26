@@ -68,7 +68,6 @@ sub abbreviate_html($$$)
 
 	return undef;
 }
-
 sub sanitize_html($%)
 {
 	my ($html,%tags)=@_;
@@ -863,6 +862,18 @@ sub make_date($$;@)
 		my ($sec,$min,$hour,$mday,$mon,$year,$wday)=gmtime($time);
 		return sprintf("%s %d",
 		$months[$mon],$year+1900);
+	}
+	elsif($style eq "atomnow")
+	{
+		my ($sec,$min,$hour,$mday,$mon,$year,$wday)=gmtime();
+		return sprintf("%04d-%02d-%02dT%02d:%02d:%02dZ",
+$year+1900,$mon+1,$mday,$hour,$min,$sec);
+	}
+	elsif($style eq "atom")
+	{
+		my ($sec,$min,$hour,$mday,$mon,$year,$wday)=gmtime($time);
+		return sprintf("%04d-%02d-%02dT%02d:%02d:%02dZ",
+$year+1900,$mon+1,$mday,$hour,$min,$sec);
 	}
 	elsif($style eq "2ch-sep93")
 	{
