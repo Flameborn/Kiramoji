@@ -309,7 +309,11 @@ sub compile_template($;$)
 	my $sub=eval
 		'no strict; sub { '.
 		'my $protocol="http";'.
-		'my $port=$ENV{SERVER_PORT}==80 or $ENV{SERVER_PORT}==443?"":":$ENV{SERVER_PORT}";'.
+		'if ($ENV{SERVER_PORT}==80 || $ENV{SERVER_PORT}==443) {'.
+		'my $port="";'.
+		'} else {'.
+		'my $port=":$ENV{SERVER_PORT}";'.
+		'}'.
 		'my $self=$ENV{SCRIPT_NAME};'.
 		'my $absolute_self="$protocol://$ENV{SERVER_NAME}$port$ENV{SCRIPT_NAME}";'.
 		'my ($path)=$ENV{SCRIPT_NAME}=~m!^(.*/)[^/]+$!;'.
