@@ -33,6 +33,7 @@ Similarly to Kareha's license, this mod is released into the public domain.
 - Swapped out the *SillyName* generator to an adjective/noun-based one, based on https://github.polettix.it/ETOOBUSY/2020/01/28/generate-name/
 - Added a *protocol* option which can be changed in *wakautils.pl*, used when generating page links and feeds.
 - A more up-to-date spam file, taken from the official Kiramoji instance.
+- Atom support
 
 ## Known issues
 

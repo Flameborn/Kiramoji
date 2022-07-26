@@ -104,6 +104,7 @@
 #use constant HTML_SELF => 'index.html';		# Name of main html file
 #use constant HTML_BACKLOG => 'subback.html';	# Name of backlog html file
 #use constant RSS_FILE => 'index.rss';			# RSS file. Set to '' to disable RSS support.
+#use constant ATOM_FILE => 'index.atom';			# Atom file. Set to '' to disable Atom support.
 #use constant JS_FILE => 'kiramoji.js';			# Location of the js file
 #use constant SPAM_FILES => ('spam.txt');		# Spam definition files, as a Perl list.
 												# Hints: * Set all boards to use the same file for easy updating.
