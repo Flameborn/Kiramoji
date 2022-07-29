@@ -466,9 +466,9 @@ sub preview_post($$$)
 	# format the comment
 	$comment=format_comment($comment,$markup,$thread);
 
-	print "Content-Type: text/html\n";
+	print "Content-Type: text/html; charset=utf-8\n";
 	print "\n";
-	print $comment;
+	print (decode('UTF-8',$comment));
 }
 
 sub proxy_check($)
