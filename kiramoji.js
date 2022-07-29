@@ -8,8 +8,14 @@ function require_script_version(v)
 function show(id)
 {
 	var style=document.getElementById(id).style;
-	if(style.display) style.display="";
-	else style.display="none";
+	var status=document.getElementById("link"+id);
+	if(style.display) {
+		style.display="";
+		status.setAttribute("aria-expanded",true);
+	} else {
+		style.display="none";
+		status.setAttribute("aria-expanded",false);
+	}
 }
 
 function insert(text,thread)

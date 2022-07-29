@@ -163,7 +163,7 @@ use constant POSTING_FORM_TEMPLATE => compile_template(q{
  		<input type="text" name="field_b" size="19" maxlength="<const MAX_FIELD_LENGTH>" aria-label="<const S_LINK>"/>
 		<if $thread><input type="submit" value="<const S_REPLY>" /></if>
 		<if SPAM_TRAP><div style="display:none"><const S_SPAMTRAP><input type="text" name="name" size="19" autocomplete="off" /><input type="text" name="link" size="19" autocomplete="off" /></div></if>
-		<small><a href="javascript:show('options<var $thread>')"><const S_MOREOPTS></a></small>
+		<small><a role="button" aria-expanded="false" aria-controls="options<var $thread>" id="linkoptions<var $thread>" href="javascript:show('options<var $thread>')"><const S_MOREOPTS></a></small>
 	</td>
 </tr>
 
