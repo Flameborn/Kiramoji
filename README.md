@@ -34,6 +34,7 @@ Similarly to Kareha's license, this mod is released into the public domain.
 - Added a *protocol* option which can be changed in *wakautils.pl*, used when generating page links and feeds.
 - A more up-to-date spam file, taken from the official Kiramoji instance.
 - Atom support
+- Properly URL decode unicode characters when previewing post.
 
 ## Known issues
 
