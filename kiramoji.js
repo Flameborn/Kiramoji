@@ -88,6 +88,7 @@ function preview_post(formid,thread)
 	}
 	if(is_ie()||xmlhttp.setRequestHeader) xmlhttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 	xmlhttp.send(text);
+	form.comment.focus();
 }
 
 function get_xmlhttp()
