@@ -34,6 +34,7 @@ kiramoji.ga {
 	}
 
 	#Block access to some non-public files and folders
+	respond /*.dat 404
 	respond /*.txt 404
 	respond /config.pl 404
 	respond /wakautils.pl 404
