@@ -1155,7 +1155,7 @@ sub spam_screen($)
 	print "Content-Type: text/html\n\n";
 	print "<html><body>";
 	print "<h1>Anti-spam filters triggered.</h1>";
-	print "<p>If you are not a spammer, you are probably accidentially ";
+	print "<p>If you are not a spammer, you are probably accidentally ";
 	print "trying to use an URL that is listed in the spam file. Try ";
 	print "editing your post to remove it. Sorry for any inconvenience.</p>";
 	print "<small style='color:white'><small>";
