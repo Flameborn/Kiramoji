@@ -1158,9 +1158,7 @@ sub spam_screen($)
 	print "<p>If you are not a spammer, you are probably accidentally ";
 	print "trying to use an URL that is listed in the spam file. Try ";
 	print "editing your post to remove it. Sorry for any inconvenience.</p>";
-	print "<small style='color:white'><small>";
-	print "$_<br>" for(map $query->param($_),$query->param);
-	print "</small></small>";
+	print '<a href="javascript:history.back()">Go back</a>';
 
 	exit 0;
 }
