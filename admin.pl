@@ -69,8 +69,8 @@ function banclick(link)
 use constant THREAD_TEMPLATE => compile_template(ADMIN_HEAD_INCLUDE.q{
 <div class="navi">
 Pages: <loop template_for("page",0,(scalar(@$threads)-1)/THREADS_DISPLAYED)>
-	<if $page eq $currpage><var $page></if>
-	<if $page ne $currpage><a href="<var $self>/p<var $page>"><var $page></a></if>
+	<if $page eq $currpage><var $page + 1></if>
+	<if $page ne $currpage><a href="<var $self>/p<var $page>"><var $page + 1></a></if>
 </loop>
 <a href="<var $self>/list">Thread list</a>
 </div>
@@ -132,8 +132,8 @@ Edit: <loop $editable>
 
 <div class="navi">
 Pages: <loop template_for("page",0,(scalar(@$threads)-1)/THREADS_DISPLAYED)>
-	<if $page eq $currpage><var $page></if>
-	<if $page ne $currpage><a href="<var $self>/p<var $page>"><var $page></a></if>
+	<if $page eq $currpage><var $page + 1></if>
+	<if $page ne $currpage><a href="<var $self>/p<var $page>"><var $page + 1></a></if>
 </loop>
 <a href="<var $self>/list">Thread list</a>
 </div>
