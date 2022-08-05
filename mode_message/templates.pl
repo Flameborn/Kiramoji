@@ -535,7 +535,7 @@ use constant BACKLOG_PAGE_TEMPLATE => compile_template( GLOBAL_HEAD_INCLUDE.q{
 
 use constant RSS_TEMPLATE => compile_template( q{
 <?xml version="1.0" encoding="<const CHARSET>"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/">
 
 <channel>
 <title><const TITLE></title>
@@ -548,7 +548,7 @@ use constant RSS_TEMPLATE => compile_template( q{
 	<link><var $absolute_self>/<var $thread>/</link>
 	<guid><var $absolute_self>/<var $thread>/</guid>
 	<comments><var $absolute_self>/<var $thread>/</comments>
-	<author><var $author></author>
+	<dc:creator><var $author></dc:creator>
 	<description><![CDATA[
 		<var $$posts[0]{abbreviation}=~m!<div class="replytext".(.*?)</div!; $1 >
 		<if $abbreviated><p><small>Post too long, full version <a href="<var $absolute_self>/<var $thread>/">here</a>.</small></p>
