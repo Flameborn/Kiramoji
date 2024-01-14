@@ -131,7 +131,7 @@ BEGIN {
 		'q'=>{},'code'=>{},
 	)} unless(defined &ALLOWED_HTML);
 
-	eval "use constant KIRAMOJI_VERSION => '3.3.2'" unless(defined &KIRAMOJI_VERSION);
+	eval "use constant KIRAMOJI_VERSION => '3.4'" unless(defined &KIRAMOJI_VERSION);
 }
 
 1;

@@ -35,6 +35,7 @@ Similarly to Kareha's license, this mod is released into the public domain.
 - A more up-to-date spam file, taken from the official Kiramoji instance.
 - Atom support
 - Properly URL decode unicode characters when previewing post.
+- Added swatch/internet time format when displaying dates.
 
 ## Known issues
 
