@@ -42,13 +42,18 @@ kiramoji.ga {
 	respond /mode_image/* 404
 
 	#Custom regexp matcher to capture the script name
-	@perlFile path_regexp perlScript ^(/.*\.pl)
+	@perlFile {
+		path_regexp perlScript ^(/.*\.pl)
+		file {
+			root .
+		}
+	}
 	#This is the CGI block. Change dir to the directory of your Kiramoji installation
 	cgi @perlFile dir{re.perlScript.1} {
 		#This dir subdirective is your CGI working directory.
 		#Change the second dir to the directory of your Kiramoji installation.
 		dir dir
-		#This is the name/arguments, Kiramoji needs this passed.
+		#This has the name+arguments, Kiramoji needs this to be passed.
 		script_name {path}
 		#The server port Caddy listens on needs to be passed to Kiramoji.
 		env SERVER_PORT={server_port}
