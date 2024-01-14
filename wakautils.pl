@@ -3,6 +3,8 @@
 use strict;
 
 use Time::Local;
+use Time::Piece;
+use Time::Seconds;
 use Socket;
 use utf8::all;
 
@@ -874,6 +876,21 @@ $year+1900,$mon+1,$mday,$hour,$min,$sec);
 		my ($sec,$min,$hour,$mday,$mon,$year,$wday)=gmtime($time);
 		return sprintf("%04d-%02d-%02dT%02d:%02d:%02dZ",
 $year+1900,$mon+1,$mday,$hour,$min,$sec);
+	}
+	elsif($style eq "swatch")
+	{
+		my $current_time = gmtime();
+		my $cet_time = $current_time + ONE_HOUR;  # Adding 1 hour to get CET offset
+
+		my $date_string = $cet_time->strftime("d%d.%m.%y");
+
+		my $beats = int($cet_time->second + $cet_time->minute * 60 + $cet_time->hour * 3600) / 86.4;
+		my $fraction = sprintf("%02d", int(($beats - int($beats)) * 100));
+		$beats = int($beats);
+
+		my $time_string = sprintf("@%03d.%s", $beats, $fraction);
+
+		return "$date_string $time_string .beats";
 	}
 	elsif($style eq "2ch-sep93")
 	{

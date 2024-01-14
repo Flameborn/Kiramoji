@@ -69,7 +69,7 @@
 #use constant PROXY_CHECK => ();				# Ports to scan for proxies - NOT IMPLEMENTED.
 #use constant TRIM_METHOD => 1;					# Which threads to trim (0: oldest - like futaba 1: least active - furthest back)
 #use constant REQUIRE_THREAD_TITLE => 1;		# Require a title for threads (0: no, 1: yes)
-#use constant DATE_STYLE => '2ch';				# Date style ('2ch', 'futaba', 'localtime, 'http')
+#use constant DATE_STYLE => '2ch';				# Date style ('2ch', 'futaba', 'localtime, 'http', 'swatch')
 #use constant DISPLAY_ID => 'thread board sage';# How to display user IDs (0 or '': don't display,
 												#  'day', 'thread', 'board' in any combination: make IDs change for each day, thread or board,
 												#  'mask': display masked IP address (similar IPs look similar, but are still encrypted)
