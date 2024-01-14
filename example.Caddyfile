@@ -15,8 +15,8 @@
 	#If you use different ports for HTTP and HTTPS, change them here.
 	#http_port  8080
 	#https_port 8443
-	#Make sure the CGI module is before file_server (which should be the last directive). Do not change this.
-	order cgi before file_server
+	#Make sure the CGI module is ordered last. Do not change this.
+	order cgi last
 }
 
 #This is your domain for Kiramoji. Change it to your registered domain name.
@@ -26,37 +26,32 @@ kiramoji.ga {
 	#Change dir to the directory of your Kiramoji installation
 	root * dir
 
-	#Add a file server, so that static files are served.
+	#Add a file server, so that HTML files are served.
 	file_server {
-		#Do not serve Perl files.
+		#Don't serve Perl files and pass them on to the CGI module.
 		hide *.pl
-		}
-	#Block access to some more non-public files
+		pass_thru
+	}
+
+	#Block access to some non-public files and folders
 	respond /*.dat 404
 	respond /*.txt 404
+	respond /config.pl 404
+	respond /wakautils.pl 404
+	respond /mode_message/* 404
+	respond /mode_image/* 404
 
-	#This is the CGI block. Change PATH to the directory of your Kiramoji installation
-	#Due to a bug in the CGI directive, it needs to be duplicated for admin.pl.
-	cgi /kiramoji.pl* PATH/kiramoji.pl {
+	#Custom regexp matcher to capture the script name
+	@perlFile path_regexp perlScript ^(/.*\.pl)
+	#This is the CGI block. Change dir to the directory of your Kiramoji installation
+	cgi @perlFile dir{re.perlScript.1} {
 		#This dir subdirective is your CGI working directory.
-		#Change PATH to the directory of your Kiramoji installation.
-		dir PATH
-		#Kiramoji needs this to be passed.
-		script_name /kiramoji.pl
-		#The server port Caddy listens on needs to be passed to Kiramoji. For now, this cannot be a placeholder. Change accordingly.
-		env SERVER_PORT=443
+		#Change the second dir to the directory of your Kiramoji installation.
+		dir dir
+		#This is the name/arguments, Kiramoji needs this passed.
+		script_name {path}
+		#The server port Caddy listens on needs to be passed to Kiramoji.
+		env SERVER_PORT={server_port}
 	}
-
-	#Change PATH to the directory of your Kiramoji installation
-	cgi /admin.pl* PATH/admin.pl {
-		#This dir subdirective is your CGI working directory.
-		#Change PATH to the directory of your Kiramoji installation.
-		dir PATH
-		#Kiramoji needs this to be passed.
-		script_name /admin.pl
-		#The server port Caddy listens on needs to be passed to Kiramoji. For now, this cannot be a placeholder. Change accordingly.
-		env SERVER_PORT=443
-	}
-
 	#You're done.
 }
