@@ -1,4 +1,5 @@
 use strict;
+use utf8::all;
 
 BEGIN {
 	use constant S_NOADMIN => 'No ADMIN_PASS defined in the configuration';	# Returns error when the config is incomplete

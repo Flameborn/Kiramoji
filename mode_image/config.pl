@@ -5,6 +5,8 @@
 # default values. You must specify ADMIN_PASS and SECRET.
 #
 
+use utf8::all;
+
 # System config
 #use constant ADMIN_PASS => 'CHANGEME';			# Admin password. For fucks's sake, change this.
 #use constant SECRET => 'CHANGEME';				# Cryptographic secret. CHANGE THIS to something totally random, and long.
